@@ -1,0 +1,42 @@
+<form method="post" action="/paws/<%= @dog.id %>">
+  <label for="name-field">First Name:</label>
+  <input
+  type="text"
+  name="name"
+  id="name-field"
+  value="<%= @dog.animal_name %>"
+  />
+
+  <label for="animal_age-field">Quantity:</label>
+  <input
+  type="number"
+  name="age"
+  id="animal_age-field"
+  value="<%= @dog.age() %>"
+  />
+
+  <label for="animal_type-field">Quantity:</label>
+  <input
+  type="number"
+  name="age"
+  min="1" max="20"
+  id="animal_type-field"
+  value="<%= @dog.type() %>"
+  />
+
+  <label for="animal_location">Choose your Location</label>
+  <select name="location" id="location-select">
+    <option value="Edinburgh" <%= 'selected' if @student.house ==  "Edinburgh" %>>Aberdeen</option>
+    <option value="Glasgow"<%= 'selected' if @student.house ==  "Glasgow" %>>Aberdeen</option>
+    <option selected value="Aberdeen"<%= 'selected' if @student.house ==  "Aberdeen" %>>Aberdeen</option>
+    <option value="Dundee"<%= 'selected' if @student.house ==  "Dundee" %>>Dundee</option>
+  </select>
+
+  animal_profile,
+  dog_training,
+  dog_innoculation,
+  dog_neutered,
+  dog_adoption_available,
+  human_id
+  <input type='submit' value="Edit Order">
+</form>

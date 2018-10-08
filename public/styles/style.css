@@ -1,0 +1,209 @@
+* {
+   box-sizing: border-box;
+}
+
+html {
+  line-height: 1.4;
+  font-weight: 400;
+  font-family: sans-serif;
+}
+
+body {
+  background: lightskyblue;
+  margin: 0;
+  font-family: sans-serif
+}
+
+
+/* header navigation */
+header {
+  color: white;
+  padding: 0.5em;
+  background: dodgerblue;
+  text-align: left;
+}
+
+header h1 {
+  margin: 0;
+}
+
+header nav {
+  display: block;
+  overflow: hidden;
+  text-align: left;
+}
+
+header nav a {
+  /* display: inline-block;
+  padding: .5em; */
+  color: white;
+  font-weight: 600;
+  text-transform: lowercase;
+  width: 25%;
+  float: left;
+}
+
+header div {
+  padding: 0.5em;
+  background: dodgerblue;
+  image-orientation: left
+}
+
+/* top navigation */
+.topnav {
+    background-color: dodgerblue;
+    overflow: auto;
+    width: 100%
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: lightskyblue;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* current active link */
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+/* Right-aligned section inside the top navigation */
+.topnav-right {
+  float: right;
+}
+
+/* Left-aligned section inside the top navigation */
+.topnav-left {
+  float: left;
+}
+
+a {
+  outline: none;
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0 0 .5em 0;
+  letter-spacing: 0.1em;
+}
+
+h2 {
+  font-size: 140%;
+  font-weight: 400;
+  color: dodgerblue;
+}
+
+p {
+  margin: 0;
+}
+
+p + p {
+  margin-top: .75em;
+}
+
+div {
+  padding: 1.5em;
+  background: white;
+}
+
+div h3 {
+  color: dodgerblue;
+}
+
+div p {
+  color: dodgerblue;
+}
+
+
+main {
+  background: aliceblue;
+  padding-bottom: 1.5em;
+}
+
+main section,
+main aside {
+  padding: 1.5em;
+  padding-bottom: 0;
+}
+
+main article {
+  padding: 1.5em;
+  background: white;
+  border-radius: 3px;
+}
+
+main article p {
+  color: dodgerblue;
+  line-height: 1.5;
+}
+
+.capsule {
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid lightskyblue;
+}
+
+.capsule  + .capsule {
+  border-top: none;
+}
+
+.capsule:first-of-type {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.capsule:last-of-type {
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+
+footer {
+  color: white;
+  padding: 2em;
+  text-align: center;
+}
+
+@media (min-width: 800px) {
+  header,
+  main {
+    overflow: hidden;
+  }
+  main section,
+  main aside {
+    float: left;
+    width: 40%;
+    box-sizing: border-box;
+  }
+  main section {
+    width: 60%;
+    padding-right: 0;
+  }
+  header h1 {
+    float: left;
+  }
+  header nav {
+    float: right;
+  }
+}
+
+hr {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 1px;
+    color: dodgerblue;
+}

@@ -1,0 +1,21 @@
+<h2>List of dogs that are not currently adoptable</h2>
+<!-- needs the query to be updated -->
+  <% for dog in @dogs do %>
+
+  <hr/>
+    <div class="dogs">
+
+      <p>Name: <%= dog.animal_name() %></p>
+      <p>Breed: <%= dog.animal_breed %></p>
+      <p>Age: <%= dog.animal_age %></p>
+      <p>Currently lives in: <%= dog.animal_location %></p>
+      <p>About me: <%= dog.animal_profile %></p>
+      <p>Am I trained?: <%= dog.trained?() ? 'Yes' : 'No' %></p>
+      <p>Do I have my jabs?: <%= dog.innoculated?() ? 'Yes' : 'No' %></p>
+      <p>Am I neutered?: <%= dog.snipped?() ? 'Yes' : 'No' %></p>
+      <p>Am I available to be homed?: <%= dog.available?() ? 'Yes' : 'No' %></p>
+      <p><a href="/paws/<%= dog.id %>">View Dog</a></p>
+      <hr/>
+    </div>
+
+<% end %>

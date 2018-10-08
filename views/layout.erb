@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="/styles/style.css">
+  </head>
+
+  <header>
+    <nav>
+      <div class="topnav">
+        <div class="topnav-right">
+          <a href=/paws/help>help</a>
+          <a href="/paws/dogs/available">Animals</a>
+          <a href="/paws/dogs/humans/index">People</a>
+          <a href="/paws/adoptions/index">Adoptions</a>
+        </div>
+
+      </div>
+    </nav>
+    <div class="topnav-left">
+      <a href="/paws/index">
+      <h1><img src="/images/pawslogofinal.png" style="width:200px;" alt="PAWS Animal Shelter Logo"</h1>
+    </a>
+    </div>
+  </header>
+  <main>
+    <section>
+      <article>
+          <%= yield %>
+      </article>
+    </section>
+    <aside>
+      <div class=capsule>
+        <h3><a href="/paws/dogs/search">View all available dogs</a></h3>
+        <p>Find the dogs waiting for their 'forever home'. If you're interested in being matched to our furry friends, use the search function.</p>
+      </div>
+      <div class=capsule>
+        <h3><a href="/paws/dogs/homed">View all dogs with homes</a></h3>
+        <p>We've successfully placed lots of our furry friends. Check out the list of pooches and their loving owners.</p>
+      </div>
+    <div class=capsule>
+      <h3><a href="/paws/dogs/new">Add a dog</h3>
+      <p>Additional dogs can be added to the dog database </p>
+    </div>
+    </aside>
+  </main>
+
+  <body>
+    <section class="wrapper">
+      <main>
+      </main>
+      <footer>&copy 2018</footer>
+    </section>
+  </body>
+</html>
