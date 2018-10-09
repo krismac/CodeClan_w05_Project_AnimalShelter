@@ -1,20 +1,31 @@
-<h2>List of dogs that are not currently adoptable</h2>
-  <hr>
-  <p>Name: <%= dog.animal_name() %></p>
-  <p>Breed: <%= dog.animal_breed %></p>
-  <p>Age: <%= dog.animal_age %></p>
-  <p>Currently lives in: <%= dog.animal_location %></p>
-  <p>About me: <%= dog.animal_profile %></p>
-  <p>Am I trained?: <%= dog.dog_training %></p>
-  <p>Do I have my jabs?: <%= dog.dog_innoculation %></p>
-  <p>Am I neutered?: <%= dog.dog_neutered %></p>
-  <p>Am I available to be homed?: <%= dog.dog_adoption_available %></p>
-  <hr>
+<h2>Show dog details for <%= @dog.animal_name() %></h2>
 
-  <p><a href="/paws/<%=@dog.id %>">View Dog</a></p>
-  <a href="/paws/<%=@dog.id %>/edit">Edit Dog</a>
+<hr/>
+  <div class="dogs">
 
-  <form action="/paws/<%= @dog.id %>/delete" method="post">
-    <input type="submit" value="Delete Student">
-  </form>
-  <hr>
+    <p.thick>Name:</p.thick><p><%= @dog.animal_name() %></p></p>
+    <p.thick>Breed: </p.thick><p><%= @dog.animal_breed %></p>
+    <p.thick>Age: </p.thick><p><%= @dog.animal_age %></p>
+    <p.thick>Currently lives in: </p.thick><p><%= @dog.animal_location %></p>
+    <p.thick>About me: </p.thick><p><%= @dog.animal_profile %></p>
+    <p.thick>Am I trained?: </p.thick><p><%= @dog.trained?() ? 'Yes' : 'No' %></p>
+    <p.thick>Do I have my jabs?: </p.thick><p><%= @dog.innoculated?() ? 'Yes' : 'No' %></p>
+    <p.thick>Am I neutered?: </p.thick><p><%= @dog.snipped?() ? 'Yes' : 'No' %></p>
+    <p.thick>Am I available to be homed?: </p.thick><p><%= @dog.available?() ? 'Yes' : 'No' %></p>
+<!--
+    <form action="/paws/dogs/<%=@dog.id %>">
+        <input type="submit" value="View Dog Details"/>
+    </form>
+
+    <form action="/paws/dogs/<%=@dog.id%>/edit">
+        <input type="submit" value="Edit Dog Details"/>
+    </form>
+
+    <form action="/paws/dogs/<%= @dog.id %>/delete" method="post">
+      <input type="submit" value="Remove Dog"> -->
+    </form>
+    <a href="/paws/dogs/<%=@dog.id %>" class="button">View Dog Details</a>
+    <a href="/paws/dogs/<%=@dog.id%>/edit" class="button">Edit Dog Details</a>
+    <a href="/paws/dogs/<%= @dog.id %>/delete" class="button">Remove Dog</a>
+    <hr/>
+  </div>

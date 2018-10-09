@@ -12,7 +12,7 @@ CREATE TABLE humans (
 CREATE TABLE dogs (
   id SERIAL4 PRIMARY KEY,
   animal_name VARCHAR(255),
-  animal_age INT,
+  animal_age INT2,
   animal_type VARCHAR(255),
   animal_breed VARCHAR(255),
   animal_location VARCHAR(255),

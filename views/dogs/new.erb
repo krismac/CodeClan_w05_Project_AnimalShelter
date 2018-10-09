@@ -1,43 +1,57 @@
-<form method="POST" action="/paws">
+<h2>Create a new Doggy Profile</h2>
+<form method="POST" action="/paws/dogs">
 
-  <label for="name-field">Animal Name:</label>
-  <input
-  type="text"
-  name="name"
-  id="name-field"
-  value="<%= @dog.animal_name %>"
-  />
-
-  <label for="animal_age-field">Animal Age:</label>
-  <input
-  type="number"
-  name="age"
-  id="animal_age-field"
-  value="<%= @dog.age() %>"
-  />
-
-  <label for="animal_type-field">Animal Type:</label>
-  <input
-  type="number"
-  name="age"
-  min="1" max="20"
-  id="animal_type-field"
-  value="<%= @dog.type() %>"
-  />
-
-  <label for="animal_location">Choose your Location</label>
-  <select name="location" id="location-select">
-    <option value="Edinburgh" <%= 'selected' if @student.house ==  "Edinburgh" %>>Aberdeen</option>
-    <option value="Glasgow"<%= 'selected' if @student.house ==  "Glasgow" %>>Aberdeen</option>
-    <option selected value="Aberdeen"<%= 'selected' if @student.house ==  "Aberdeen" %>>Aberdeen</option>
-    <option value="Dundee"<%= 'selected' if @student.house ==  "Dundee" %>>Dundee</option>
+  <label for="name-field">Name: </label>
+  <input type="text" name="animal_name" id="name-field"/>
+  <br>
+    <label for="age-field">Age:</label>
+    <input type="number" name="animal_age" min="0" max="20" id="age-field"/>
+  <br>
+  <label for="location-select">Animal location: </label>
+  <select name="animal_location" id="location-select">
+    <option value="Glasgow">Glasgow</option>
+    <option value="Edinburgh">Edinburgh</option>
+    <option value="Dundee">Dundee</option>
+    <option value="Aberdeen">Aberdeen</option>
+  <br>
+  <br>
   </select>
+  <label for="type-select">Animal type:</label>
+  <select name="animal_type" id="type-select">
+    <option value="Dog">Dog</option>
+    <option value="Cat">Cat</option>
+    <option value="Other">Other</option>
+  </select>
+  <br>
+  <label for="breed-field">Breed: </label>
+  <input type="text" name="animal_breed" id="breed-field"/>
+  <br>
+  <label for="profile-field">Animal Profile: </label>
+  <textarea name="Text1" cols="40" rows="5" name="animal_profile" id="profile-field"></textarea>
+  <br>
+    <input type="radio" name="group1" id="tr1" value="t" /><label for="tr1"> Trained</label>
+    <input type="radio" name="group1" id="tr2" value="f" /><label for="tr2"> Not Trained</label>
+  <br>
+    <input type="radio" name="group2" id="i1" value="t" /><label for="i1">Innoculated</label>
+    <input type="radio" name="group2" id="i2" value="f" /><label for="i2"> Not Innoculated</label>
+  <br>
+    <input type="radio" name="group3" id="n1" value="t" /><label for="n1">Neutered</label>
+    <input type="radio" name="group3" id="n2" value="f" /><label for="n2"> Not Neutered</label>
+  <br>
+    <input type="radio" name="group4" id="a1" value="t" /><label for="a1">Adoption Available</label>
+    <input type="radio" name="group4" id="a2" value="f" /><label for="a2"> Not Adoption Available</label>
+  <br>
+    <label for="human-id">Select human: </label>
+    <select class="human-id" name="human_id">
+      <% for human in @humans %>
+        <option value="<%= human.id %>"><%= human.first_name %> <%= human.last_name %></option>
+      <% end %>
+    </select>
+  <br>
+  <label for="admission_date">Enter an admission date: </label>
+  <input type="date" name="admission_date" min="1980-01-01"></input>
+  <br>
+    <input type="submit" name="human-field" value="Submit your new Dog record">
+  </form>
 
-  animal_profile,
-  dog_training,
-  dog_innoculation,
-  dog_neutered,
-  dog_adoption_available,
-  human_id
-  <input type="submit" value="Create Your Dog record">
-</form>
+  <!-- <a href="/" class="button">Return to home</a> -->

@@ -6,26 +6,28 @@ class Dog
   attr_reader :id, :human_id
 
   def initialize(options)
-    @id = options['id'].to_i,
-    @animal_name    = options['animal_name'],
-    @animal_age     = options['age'].to_i,
-    @animal_type    = options['animal_type'],
-    @animal_breed    = options['animal_breed'],
-    @animal_location = options['animal_location'],
-    @animal_profile = options['animal_profile'],
-    @dog_training = options['dog_training'],
-    @dog_innoculation = options['dog_innoculation'],
-    @dog_neutered = options['dog_neutered'],
-    @dog_adoption_available = options['dog_adoption_available'],
-    @human_id = options['human_id'] != nil ? options['human_id'].to_i : options['human_id']
+    @id               = options['id'].to_i
+    @animal_name      = options['animal_name']
+    @animal_age       = options['animal_age'].to_i
+    @animal_type      = options['animal_type']
+    @animal_breed     = options['animal_breed']
+    @animal_location  = options['animal_location']
+    @animal_profile   = options['animal_profile']
+    @dog_training     = options['dog_training']
+    @dog_innoculation = options['dog_innoculation']
+    @dog_neutered      = options['dog_neutered']
+    @dog_adoption_available = options['dog_adoption_available']
+    @human_id         = options['human_id'] != nil ? options['human_id'].to_i : options['human_id']
   end
 
   def trained?
-    if @dog_training == 't'
-      return true
-    else
-      return false
-    end
+    return @dog_training == 't'
+
+    # if @dog_training == 't'
+    #   return true
+    # else
+    #   return false
+    # end
   end
 
   def innoculated?
@@ -127,16 +129,15 @@ class Dog
   end
 
   def self.find(id)
-    sql = "SELECT * FROM dogs
-    WHERE id = $1"
+    sql = "SELECT * FROM dogs WHERE id = $1"
     values = [id]
-    result = SqlRunner.run(sql, values).first
-    human = human.new(result)
-    return human
+    dog_array = SqlRunner.run( sql, values )
+    result = Dog.new(dog_array.first)
+    return result
   end
 
-  def format_name
-    return "#{@name.capitalize}"
-  end
+  # def format_name
+  #   return "#{@name.capitalize}"
+  # end
 
 end

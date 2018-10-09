@@ -50,7 +50,7 @@ human6.save
 
 dog1 = Dog.new({
   'animal_name' => 'Porthos',
-  'animal_age' => 3,
+  'age' => 3,
   'animal_type' => 'Dog',
   'animal_breed' => 'Beagle',
   'animal_location' => 'Edinburgh',
@@ -65,7 +65,7 @@ dog1 = Dog.new({
 
 dog2 = Dog.new({
   'animal_name' => 'Oisin',
-  'animal_age' => 4,
+  'age' => 4,
   'animal_type' => 'Dog',
   'animal_breed' => 'Dachshund',
   'animal_location' => 'Edinburgh',
@@ -80,7 +80,7 @@ dog2 = Dog.new({
 
 dog3 = Dog.new({
   'animal_name' => 'Jameson',
-  'animal_age' => 3,
+  'age' => 3,
   'animal_type' => 'Dog',
   'animal_breed' => 'Pug',
   'animal_location' => 'Edinburgh',
@@ -95,7 +95,7 @@ dog3 = Dog.new({
 
 dog4 = Dog.new({
   'animal_name' => 'Cara',
-  'animal_age' => 4,
+  'age' => 4,
   'animal_type' => 'Dog',
   'animal_breed' => 'Boxer',
   'animal_location' => 'Edinburgh',
@@ -110,7 +110,7 @@ dog4 = Dog.new({
 
   dog5 = Dog.new({
     'animal_name' => 'Bran',
-    'animal_age' => 6,
+    'age' => 6,
     'animal_type' => 'Dog',
     'animal_breed' => 'Terrier',
     'animal_location' => 'Edinburgh',
@@ -125,7 +125,7 @@ dog4 = Dog.new({
 
   dog6 = Dog.new({
     'animal_name' => 'Tayto',
-    'animal_age' => 3,
+    'age' => 3,
     'animal_type' => 'Dog',
     'animal_breed' => 'Bulldog',
     'animal_location' => 'Edinburgh',
@@ -140,7 +140,7 @@ dog4 = Dog.new({
 
   dog7 = Dog.new({
     'animal_name' => 'Bosco',
-    'animal_age' => 4,
+    'age' => 4,
     'animal_type' => 'Dog',
     'animal_breed' => 'Portugese Waterdog',
     'animal_location' => 'Edinburgh',
@@ -155,7 +155,7 @@ dog4 = Dog.new({
 
   dog8 = Dog.new({
     'animal_name' => 'Coilean',
-    'animal_age' => 1,
+    'age' => 1,
     'animal_type' => 'Dog',
     'animal_breed' => 'German Shepard',
     'animal_location' => 'Edinburgh',
@@ -170,7 +170,7 @@ dog4 = Dog.new({
 
   dog9 = Dog.new({
     'animal_name' => 'Murphy',
-    'animal_age' => 7,
+    'age' => 7,
     'animal_type' => 'Dog',
     'animal_breed' => 'Maltese',
     'animal_location' => 'Edinburgh',
@@ -185,7 +185,7 @@ dog4 = Dog.new({
 
     dog10 = Dog.new({
       'animal_name' => 'Cú',
-      'animal_age' => 5,
+      'age' => 5,
       'animal_type' => 'Dog',
       'animal_breed' => 'Irish Wolfhound',
       'animal_location' => 'Edinburgh',

@@ -3,19 +3,19 @@
   <% for dog in @dogs do %>
 
   <hr/>
-    <div class="dogs">
+  <div class="dogs">
 
-      <p>Name: <%= dog.animal_name() %></p>
-      <p>Breed: <%= dog.animal_breed %></p>
-      <p>Age: <%= dog.animal_age %></p>
-      <p>Currently lives in: <%= dog.animal_location %></p>
-      <p>About me: <%= dog.animal_profile %></p>
-      <p>Am I trained?: <%= dog.trained?() ? 'Yes' : 'No' %></p>
-      <p>Do I have my jabs?: <%= dog.innoculated?() ? 'Yes' : 'No' %></p>
-      <p>Am I neutered?: <%= dog.snipped?() ? 'Yes' : 'No' %></p>
-      <p>Am I available to be homed?: <%= dog.available?() ? 'Yes' : 'No' %></p>
-      <p><a href="/paws/<%= dog.id %>">View Dog</a></p>
-      <hr/>
-    </div>
+    <p.thick>Name:</p.thick><p><%= dog.animal_name() %></p>
+    <p.thick>Breed: </p.thick><p><%= dog.animal_breed %></p>
+    <p.thick>Age: </p.thick><p><%= dog.animal_age %></p>
+    <p.thick>Currently lives in: </p.thick><p><%= dog.animal_location %></p>
+    <p.thick>About me: </p.thick><p><%= dog.animal_profile %></p>
+    <p.thick>Am I trained?: </p.thick><p><%= dog.trained?() ? 'Yes' : 'No' %></p>
+    <p.thick>Do I have my jabs?: </p.thick><p><%= dog.innoculated?() ? 'Yes' : 'No' %></p>
+    <p.thick>Am I neutered?: </p.thick><p><%= dog.snipped?() ? 'Yes' : 'No' %></p>
+    <p.thick>Am I available to be homed?: </p.thick><p><%= dog.available?() ? 'Yes' : 'No' %></p>
+    <p><a href="/paws/dogs/<%= dog.animal_id %>">View Dog</a></p>
+    <hr/>
+  </div>
 
 <% end %>

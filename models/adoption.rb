@@ -9,14 +9,14 @@ class Adoption
     @id = options['id'].to_i
     @adoption_date = options['adoption_date']
     @human_id = options['human_id'].to_i
-    @dog_id = options['dog_id'].to_i
+    @animal_id = options['animal_id'].to_i
   end
 
     def save()
-      sql = "INSERT INTO adoptions (adoption_date, update_message, human_id, dog_id)
+      sql = "INSERT INTO adoptions (adoption_date, human_id, animal_id)
       VALUES ($1, $2, $3, $4)
       RETURNING id"
-      values = [@adoption_date, @update_message, @human_id, @dog_id]
+      values = [@adoption_date, @human_id, @animal_id]
       result = SqlRunner.run(sql, values)
       @id = result[0]['id'].to_i
     end
@@ -28,9 +28,9 @@ class Adoption
 
     def update()
       sql = "UPDATE adoptions
-      SET (adoption_date, update_message, human_id, dog_id) = ($1, $2, $3, $4)
+      SET (adoption_date, human_id, animal_id) = ($1, $2, $3, $4)
       WHERE id = $5"
-      values = [@adoption_date, @update_message, @human_id, @dog_id, @id]
+      values = [@adoption_date, @human_id, @animal_id, @id]
       SqlRunner.run(sql, values)
     end
 
@@ -66,7 +66,7 @@ class Adoption
     def dog()
       sql = "Select * FROM dogs
       WHERE id = $1"
-      dog_array = SqlRunner.run(sql, [@dog_id])
+      dog_array = SqlRunner.run(sql, [@animal_id])
       result = Beast.new(dog_array.first)
       return result
     end
