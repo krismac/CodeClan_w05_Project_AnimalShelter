@@ -1,0 +1,27 @@
+<h2>All dogs</h2>
+<!-- All dogs, needs to be made more specific to exclude the untrained/unavailable -->
+
+    <div class="dogs">
+      <table style="width:100%">
+        <tr>
+            <th><p.thick>Photo</p.thick></th>
+            <th><p.thick>Name</p.thick></th>
+            <th><p.thick>Breed</p.thick></th>
+            <th><p.thick>Age</p.thick></th>
+            <th><p.thick>Location</p.thick></th>
+            <th><p.thick>Available?</p.thick></th>
+            <th><p.thick>Puppy Profile</p.thick></th>
+        </tr>
+        <% for dog in @dogs do %>
+        <tr>
+          <td><a href="/paws/dogs/<%= dog.id %>"><img src="<%= dog.dog_photo_file_path%>" alt="Dog Profile Photo" class="Centre" style="width:50px;border:0;"></td>
+          <td><%= dog.animal_name() %></td>
+          <td><%= dog.animal_breed %></td>
+          <td><%= dog.animal_age %></td>
+          <td><%= dog.animal_location %></td>
+          <td><%= dog.available?() ? 'Yes' : 'No' %></td>
+          <td><a href="/paws/dogs/<%= dog.id %>" class="">View Dog</a></td>
+        <% end %>
+                </tr>
+      </table>
+    </div>

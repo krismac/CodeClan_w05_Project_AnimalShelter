@@ -3,6 +3,7 @@ require_relative('../models/human.rb')
 require_relative('../models/dog.rb')
 
 human1 = Human.new({
+  'human_photo_file_path' =>  "/humans/barack.jpg",
   'first_name' => 'Barack',
   'last_name' => 'OBama',
   'adopter' => 'Y',
@@ -12,18 +13,21 @@ human2 = Human.new({
   'first_name' => 'Britney',
   'last_name' => 'Spears',
   'adopter' => 'Y',
+  'human_photo_file_path' =>  "/humans/britney.jpg",
   'walker'  => 'N'
   })
 human3 = Human.new({
   'first_name' => 'John F.',
   'last_name' => 'Kennedy',
   'adopter' => 'Y',
+  'human_photo_file_path' =>  "/humans/johnf.jpg",
   'walker'  => 'N'
   })
 human4 = Human.new({
   'first_name' => 'Audrey',
   'last_name' => 'Hepburn',
   'adopter' => 'N',
+  'human_photo_file_path' =>  "/humans/audrey.jpg",
   'walker'  => 'Y'
   })
 
@@ -31,6 +35,7 @@ human5 = Human.new({
   'first_name' => 'Inspector',
   'last_name' => 'Gadget',
   'adopter' => 'N',
+  'human_photo_file_path' =>  "/humans/inspector.jpg",
   'walker'  => 'Y'
   })
 
@@ -38,6 +43,7 @@ human6 = Human.new({
   'first_name' => 'Kris',
   'last_name' => 'Mac',
   'adopter' => 'Y',
+  'human_photo_file_path' =>  "/humans/kris.jpg",
   'walker'  => 'Y'
   })
 
@@ -50,7 +56,7 @@ human6.save
 
 dog1 = Dog.new({
   'animal_name' => 'Porthos',
-  'age' => 3,
+  'animal_age' => 3,
   'animal_type' => 'Dog',
   'animal_breed' => 'Beagle',
   'animal_location' => 'Edinburgh',
@@ -59,13 +65,14 @@ dog1 = Dog.new({
   'dog_innoculation' => 'Y',
   'dog_neutered' => 'Y',
   'dog_adoption_available' => 'Y',
-  'admission_date' => '2018-05-18',
+  'dog_admission_date' => '2018-05-18',
+  'dog_photo_file_path' =>  "/dogs/beagle.jpg",
   'human_id' => human3.id
   })
 
 dog2 = Dog.new({
   'animal_name' => 'Oisin',
-  'age' => 4,
+  'animal_age' => 4,
   'animal_type' => 'Dog',
   'animal_breed' => 'Dachshund',
   'animal_location' => 'Edinburgh',
@@ -74,13 +81,14 @@ dog2 = Dog.new({
   'dog_innoculation' => 'Y',
   'dog_neutered' => 'Y',
   'dog_adoption_available' => 'Y',
-  'admission_date' => '03/06/18',
+  'dog_admission_date' => '2016-05-08',
+  'dog_photo_file_path' =>  "/dogs/Dachshund.jpg",
   'human_id' => human4.id
   })
 
 dog3 = Dog.new({
   'animal_name' => 'Jameson',
-  'age' => 3,
+  'animal_age' => 3,
   'animal_type' => 'Dog',
   'animal_breed' => 'Pug',
   'animal_location' => 'Edinburgh',
@@ -89,13 +97,14 @@ dog3 = Dog.new({
   'dog_innoculation' => 'Y',
   'dog_neutered' => 'Y',
   'dog_adoption_available' => 'Y',
-  'admission_date' => '03/05/18',
+  'dog_admission_date' => '2016-09-18',
+  'dog_photo_file_path' =>  "/dogs/pug.jpg",
   'human_id' => human2.id
   })
 
 dog4 = Dog.new({
   'animal_name' => 'Cara',
-  'age' => 4,
+  'animal_age' => 4,
   'animal_type' => 'Dog',
   'animal_breed' => 'Boxer',
   'animal_location' => 'Edinburgh',
@@ -104,13 +113,14 @@ dog4 = Dog.new({
   'dog_innoculation' => 'Y',
   'dog_neutered' => 'Y',
   'dog_adoption_available' => 'Y',
-  'admission_date' => '16/07/18',
+  'dog_admission_date' => '2016-09-15',
+  'dog_photo_file_path' =>  '/dogs/unknown.jpg',
   'human_id' => nil
   })
 
   dog5 = Dog.new({
     'animal_name' => 'Bran',
-    'age' => 6,
+    'animal_age' => 6,
     'animal_type' => 'Dog',
     'animal_breed' => 'Terrier',
     'animal_location' => 'Edinburgh',
@@ -119,13 +129,14 @@ dog4 = Dog.new({
     'dog_innoculation' => 'Y',
     'dog_neutered' => 'Y',
     'dog_adoption_available' => 'Y',
-    'admission_date' => '15/09/18',
+    'dog_admission_date' => '2018-09-15',
+    'dog_photo_file_path' =>  "/dogs/terrier.jpg",
     'human_id' => human6.id
     })
 
   dog6 = Dog.new({
     'animal_name' => 'Tayto',
-    'age' => 3,
+    'animal_age' => 3,
     'animal_type' => 'Dog',
     'animal_breed' => 'Bulldog',
     'animal_location' => 'Edinburgh',
@@ -134,13 +145,14 @@ dog4 = Dog.new({
     'dog_innoculation' => 'Y',
     'dog_neutered' => 'Y',
     'dog_adoption_available' => 'Y',
-    'admission_date' => '23/07/18',
+    'dog_admission_date' => '2018-07-23',
+    'dog_photo_file_path' =>  "/dogs/Bulldog.jpg",
     'human_id' => human5.id
     })
 
   dog7 = Dog.new({
     'animal_name' => 'Bosco',
-    'age' => 4,
+    'animal_age' => 4,
     'animal_type' => 'Dog',
     'animal_breed' => 'Portugese Waterdog',
     'animal_location' => 'Edinburgh',
@@ -149,13 +161,14 @@ dog4 = Dog.new({
     'dog_innoculation' => 'Y',
     'dog_neutered' => 'Y',
     'dog_adoption_available' => 'Y',
-    'admission_date' => '13/08/18',
+    'dog_admission_date' => '2018-08-13',
+    'dog_photo_file_path' =>  "/dogs/waterdog.jpg",
     'human_id' => human1.id
     })
 
   dog8 = Dog.new({
     'animal_name' => 'Coilean',
-    'age' => 1,
+    'animal_age' => 1,
     'animal_type' => 'Dog',
     'animal_breed' => 'German Shepard',
     'animal_location' => 'Edinburgh',
@@ -164,13 +177,14 @@ dog4 = Dog.new({
     'dog_innoculation' => 'Y',
     'dog_neutered' => 'Y',
     'dog_adoption_available' => 'Y',
-    'admission_date' => '05/03/18',
+    'dog_admission_date' => '2018-05-03',
+    'dog_photo_file_path' =>  "/dogs/unknown.jpg",
     'human_id' => nil
     })
 
   dog9 = Dog.new({
     'animal_name' => 'Murphy',
-    'age' => 7,
+    'animal_age' => 7,
     'animal_type' => 'Dog',
     'animal_breed' => 'Maltese',
     'animal_location' => 'Edinburgh',
@@ -179,13 +193,14 @@ dog4 = Dog.new({
     'dog_innoculation' => 'Y',
     'dog_neutered' => 'Y',
     'dog_adoption_available' => 'Y',
-    'admission_date' => '05/10/18',
+    'dog_admission_date' => '2018-10-18',
+    'dog_photo_file_path' =>  "/dogs/Maltese.jpg",
     'human_id' => nil
     })
 
     dog10 = Dog.new({
       'animal_name' => 'Cú',
-      'age' => 5,
+      'animal_age' => 5,
       'animal_type' => 'Dog',
       'animal_breed' => 'Irish Wolfhound',
       'animal_location' => 'Edinburgh',
@@ -194,7 +209,8 @@ dog4 = Dog.new({
       'dog_innoculation' => 'Y',
       'dog_neutered' => 'Y',
       'dog_adoption_available' => 'Y',
-      'admission_date' => '04/09/18',
+      'dog_admission_date' => '2018-04-15',
+      'dog_photo_file_path' => "/dogs/Irish_wolfhound.jpg",
       'human_id' => nil
       })
 

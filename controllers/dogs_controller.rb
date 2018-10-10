@@ -4,17 +4,24 @@ require('pry')
 # require_relative('../views/')
 
 ## LIST PAGE - all dogs without owner ##
-get ('/paws/dogs/search') do
-  @dogs = Dog.allavailable()
+get('/paws/dogs/all') do
+  @dogs = Dog.all()
   # binding.pry
-  erb(:'dogs/available')
+  erb(:'dogs/all')
 end
 
-## LIST PAGE - all dogs with owner ##
-get ('/paws/dogs/homed') do
-  @dogs = Dog.allhomed()
-  erb(:'dogs/notadoptable')
-end
+# ## LIST PAGE - all dogs without owner ##
+# get ('/paws/dogs/search') do
+#   @dogs = Dog.allavailable()
+#   # binding.pry
+#   erb(:'dogs/available')
+# end
+#
+# ## LIST PAGE - all dogs with owner ##
+# get ('/paws/dogs/homed') do
+#   @dogs = Dog.allhomed()
+#   erb(:'dogs/notadoptable')
+# end
 
 ## NEW ##
 get('/paws/dogs/new') do
@@ -46,20 +53,19 @@ end
 post ('/paws/dogs/:id/delete') do
   dog = Dog.find(params['id'])
   dog.delete
-  redirect to '/paws/dogs/create'
+  redirect to(:'dogs/success')
 end
 
 ## EDIT ##
 get ('/paws/dogs/:id/edit') do
   @human = Human.all
+  @dog = Dog.all
   @dog = Dog.find(params['id'])
   erb(:'dogs/edit')
 end
 
 ## UPDATE ##
-post('/paws/dogs/:id') do
-  Dog.new(params).update
-  erb(:'dogs/success')
-
-    # redirect to '/paws/dogs/create'
-end
+  post('/paws/dogs/:id') do
+    Dog.new(params).update
+    erb(:'dogs/success')
+  end

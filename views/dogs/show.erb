@@ -1,8 +1,9 @@
 <h2>Show dog details for <%= @dog.animal_name() %></h2>
-
 <hr/>
-  <div class="dogs">
-
+<div class="dogs">
+  <div class="img-container">
+          <img src="<%= @dog.dog_photo_file_path%>" style="width:200px;" alt="Dog Profile Photo" class="center" />
+  </div>
     <p.thick>Name:</p.thick><p><%= @dog.animal_name() %></p></p>
     <p.thick>Breed: </p.thick><p><%= @dog.animal_breed %></p>
     <p.thick>Age: </p.thick><p><%= @dog.animal_age %></p>
@@ -12,18 +13,6 @@
     <p.thick>Do I have my jabs?: </p.thick><p><%= @dog.innoculated?() ? 'Yes' : 'No' %></p>
     <p.thick>Am I neutered?: </p.thick><p><%= @dog.snipped?() ? 'Yes' : 'No' %></p>
     <p.thick>Am I available to be homed?: </p.thick><p><%= @dog.available?() ? 'Yes' : 'No' %></p>
-<!--
-    <form action="/paws/dogs/<%=@dog.id %>">
-        <input type="submit" value="View Dog Details"/>
-    </form>
-
-    <form action="/paws/dogs/<%=@dog.id%>/edit">
-        <input type="submit" value="Edit Dog Details"/>
-    </form>
-
-    <form action="/paws/dogs/<%= @dog.id %>/delete" method="post">
-      <input type="submit" value="Remove Dog"> -->
-    </form>
     <a href="/paws/dogs/<%=@dog.id %>" class="button">View Dog Details</a>
     <a href="/paws/dogs/<%=@dog.id%>/edit" class="button">Edit Dog Details</a>
     <a href="/paws/dogs/<%= @dog.id %>/delete" class="button">Remove Dog</a>

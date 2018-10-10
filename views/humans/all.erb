@@ -1,0 +1,24 @@
+<h2>All humans</h2>
+<!-- All humans, needs to be made more specific to exclude the untrained/unavailable -->
+<div class="humans">
+  <table style="width:100%">
+    <tr>
+        <th><p.thick>Photo</p.thick></th>
+        <th><p.thick>First Name</p.thick></th>
+        <th><p.thick>Last Name</p.thick></th>
+        <th><p.thick>Adopter</p.thick></th>
+        <th><p.thick>Walker</p.thick></th>
+        <th><p.thick>Human Profile</p.thick></th>
+    </tr>
+    <% for human in @humans do %>
+    <tr>
+      <td><a href="/paws/humans/<%= human.id %>"><img src="<%= human.human_photo_file_path%>" alt="Human Profile Photo" class="Centre" style="width:50px;border:0;"></td>
+      <td><%= human.first_name() %></td>
+      <td><%= human.last_name() %></td>
+      <td><%= human.adopter %></td>
+      <td><%= human.walker %></td>
+      <td><a href="/paws/humans/<%= human.id %>" class="">View Human</a></td>
+    <% end %>
+            </tr>
+  </table>
+</div>

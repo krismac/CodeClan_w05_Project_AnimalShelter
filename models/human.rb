@@ -2,15 +2,32 @@ require_relative('../db/sql_runner')
 
 class Human
 
-  attr_reader :id, :first_name, :last_name
+  attr_reader :id, :first_name, :last_name, :walker, :adopter, :human_photo_file_path
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
     @first_name = options['first_name']
     @last_name = options['last_name']
     @adopter = options['adopter']
+    @human_photo_file_path = options['human_photo_file_path']
     @walker = options['walker']
   end
+
+    def adopter?
+      if @adopter == 't'
+        return true
+      else
+        return false
+      end
+    end
+
+    def walker?
+      if @walker == 't'
+        return true
+      else
+        return false
+      end
+    end
 
   def save()
     sql = "INSERT INTO humans
@@ -18,14 +35,15 @@ class Human
       first_name,
       last_name,
       adopter,
+      human_photo_file_path,
       walker
     )
     VALUES
     (
-      $1, $2, $3, $4
+      $1, $2, $3, $4, $5
     )
     RETURNING id"
-    values = [@first_name, @last_name, @adopter, @walker]
+    values = [@first_name, @last_name, @adopter, @human_photo_file_path, @walker]
     result = SqlRunner.run(sql, values)
     id = result.first["id"]
     @id = id.to_i

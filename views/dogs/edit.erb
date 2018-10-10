@@ -1,33 +1,34 @@
 <h2>Edit a Doggy Profile</h2>
-<form method="POST" action="/paws/edit">
+<form method="POST" action="/paws/dogs/<%= @dog.id %>">
 
     <label for="name-field">Name: </label>
-    <input type="text" name="animal_name" id="name-field"/>
+    <input type="text" name="animal_name" value="<%= @dog.animal_name %>" id="name-field"/>
     <br>
       <label for="age-field">Age:</label>
-      <input type="number" name="animal_age" min="0" max="20" id="age-field"/>
+      <input type="number" name="animal_age" min="0" max="20" value="<%= @dog.animal_age %>" id="age-field"/>
     <br>
     <label for="location-select">Animal location: </label>
-    <select name="animal_location" id="location-select">
+    <select name="animal_location" id="location-select" value="<%= @dog.animal_location %>">
       <option value="Glasgow">Glasgow</option>
       <option value="Edinburgh">Edinburgh</option>
       <option value="Dundee">Dundee</option>
       <option value="Aberdeen">Aberdeen</option>
+
     <br>
     <br>
     </select>
     <label for="type-select">Animal type:</label>
-    <select name="animal_type" id="type-select">
+    <select name="animal_type" id="type-select" value="<%= @dog.animal_type %>">
       <option value="Dog">Dog</option>
       <option value="Cat">Cat</option>
       <option value="Other">Other</option>
     </select>
     <br>
     <label for="breed-field">Breed: </label>
-    <input type="text" name="animal_breed" id="breed-field"/>
+    <input type="text" name="animal_breed" id="breed-field" value="<%= @dog.animal_breed %>"/>
     <br>
     <label for="profile-field">Animal Profile: </label>
-    <textarea name="Text1" cols="40" rows="5" name="animal_profile" id="profile-field"></textarea>
+    <textarea name="Text1" cols="40" rows="5" name="animal_profile" id="profile-field" value="<%= @dog.animal_profile %>"></textarea>
     <br>
       <input type="radio" name="group1" id="tr1" value="t" /><label for="tr1"> Trained</label>
       <input type="radio" name="group1" id="tr2" value="f" /><label for="tr2"> Not Trained</label>
@@ -42,8 +43,12 @@
       <input type="radio" name="group4" id="a2" value="f" /><label for="a2"> Not Adoption Available</label>
     <br>
     <label for="admission_date">Enter an admission date: </label>
-    <input type="date" name="admission_date" min="1980-01-01"></input>
+    <input type="date" name="admission_date" min="1980-01-01" value="<%= @dog.animal_profile %>"></input>
     <br>
   </form>
-  <input type='submit' value="Edit Your Dog record">
+  <input type='submit' value="Submit Your Dog Edits">
   </form>
+  <a href="/paws/dogs/<%=@dog.id %>" class="button">View Dog Details</a>
+  <a href="/paws/dogs/<%=@dog.id%>/edit" class="button">Edit Dog Details</a>
+  <a href="/paws/dogs/<%= @dog.id %>/delete" class="button">Remove Dog</a>
+  <hr/>

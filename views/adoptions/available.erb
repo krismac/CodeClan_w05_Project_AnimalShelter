@@ -1,0 +1,20 @@
+<h2>All dogs</h2>
+<!-- All dogs, needs to be made more specific to exclude the untrained/unavailable -->
+  <% for dog in @dogs do %>
+
+  <hr/>
+    <div class="dogs">
+
+      <p.thick>Name:</p.thick><p><%= dog.animal_name() %></p></p>
+      <p.thick>Breed: </p.thick><p><%= dog.animal_breed %></p>
+      <p.thick>Age: </p.thick><p><%= dog.animal_age %></p>
+      <p.thick>Currently lives in: </p.thick><p><%= dog.animal_location %></p>
+      <p.thick>About me: </p.thick><p><%= dog.animal_profile %></p>
+      <p.thick>Am I trained?: </p.thick><p><%= dog.trained?() ? 'Yes' : 'No' %></p>
+      <p.thick>Do I have my jabs?: </p.thick><p><%= dog.innoculated?() ? 'Yes' : 'No' %></p>
+      <p.thick>Am I neutered?: </p.thick><p><%= dog.snipped?() ? 'Yes' : 'No' %></p>
+      <p.thick>Am I available to be homed?: </p.thick><p><%= dog.available?() ? 'Yes' : 'No' %></p>
+      <a href="/paws/dogs/<%= dog.id %>" class="button">View Dog Details</a>
+    </div>
+
+<% end %>

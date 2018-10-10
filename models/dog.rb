@@ -2,32 +2,33 @@ require_relative('../db/sql_runner')
 
 class Dog
 
-  attr_accessor :animal_name, :animal_age, :animal_type, :animal_breed, :animal_location, :animal_profile, :dog_training, :dog_innoculation, :dog_neutered, :dog_adoption_available
+  attr_accessor :animal_name, :animal_age, :animal_type, :animal_breed, :animal_location, :animal_profile, :dog_training, :dog_innoculation, :dog_neutered,:dog_admission_date, :dog_adoption_available, :dog_photo_file_path
   attr_reader :id, :human_id
 
   def initialize(options)
-    @id               = options['id'].to_i
-    @animal_name      = options['animal_name']
-    @animal_age       = options['animal_age'].to_i
-    @animal_type      = options['animal_type']
-    @animal_breed     = options['animal_breed']
-    @animal_location  = options['animal_location']
-    @animal_profile   = options['animal_profile']
-    @dog_training     = options['dog_training']
-    @dog_innoculation = options['dog_innoculation']
-    @dog_neutered      = options['dog_neutered']
+    @id                     = options['id'].to_i
+    @animal_name            = options['animal_name']
+    @animal_age             = options['animal_age'].to_i
+    @animal_type            = options['animal_type']
+    @animal_breed           = options['animal_breed']
+    @animal_location        = options['animal_location']
+    @animal_profile         = options['animal_profile']
+    @dog_training           = options['dog_training']
+    @dog_innoculation       = options['dog_innoculation']
+    @dog_neutered           = options['dog_neutered']
     @dog_adoption_available = options['dog_adoption_available']
-    @human_id         = options['human_id'] != nil ? options['human_id'].to_i : options['human_id']
+    @dog_admission_date     = options['dog_admission_date']
+    @dog_photo_file_path    = options['dog_photo_file_path']
+    @human_id               = options['human_id'] != nil ? options['human_id'].to_i : options['human_id']
   end
 
   def trained?
     return @dog_training == 't'
-
-    # if @dog_training == 't'
-    #   return true
-    # else
-    #   return false
-    # end
+    if @dog_training == 't'
+      return true
+    else
+      return false
+    end
   end
 
   def innoculated?
@@ -67,14 +68,16 @@ class Dog
       dog_innoculation,
       dog_neutered,
       dog_adoption_available,
+      dog_admission_date,
+      dog_photo_file_path,
       human_id
     )
     VALUES
     (
-      $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11
+      $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13
     )
     RETURNING id"
-    values = [@animal_name, @animal_age, @animal_type, @animal_breed, @animal_location, @animal_profile, @dog_training, @dog_innoculation, @dog_neutered, @dog_adoption_available, @human_id]
+    values = [@animal_name, @animal_age, @animal_type, @animal_breed, @animal_location, @animal_profile, @dog_training, @dog_innoculation, @dog_neutered, @dog_adoption_available, @dog_admission_date, @dog_photo_file_path, @human_id]
     result = SqlRunner.run(sql, values)
     id = result.first['id']
     @id = id
@@ -94,14 +97,16 @@ class Dog
       dog_innoculation,
       dog_neutered,
       dog_adoption_available,
+      dog_admission_date,
+      dog_photo_file_path,
       human_id
     )
     VALUES
     (
-      $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11
+      $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13
     )
-    WHERE id = $12"
-    values = [@animal_name, @animal_age, @animal_type, @animal_breed, @animal_location, @animal_profile, @dog_training, @dog_innoculation, @dog_neutered, @dog_adoption_available, @human_id, @id]
+    WHERE id = $14"
+    values = [@animal_name, @animal_age, @animal_type, @animal_breed, @animal_location, @animal_profile, @dog_training, @dog_innoculation, @dog_neutered, @dog_adoption_available,  @dog_admission_date, @dog_photo_file_path, @human_id, @id]
     SqlRunner.run(sql, values)
   end
 
@@ -112,19 +117,10 @@ class Dog
     SqlRunner.run(sql, values)
   end
 
-  def self.allavailable()
-    sql = "SELECT * FROM dogs
-          WHERE human_id IS null;"
+  def self.all()
+    sql = "SELECT * FROM dogs;"
     dog = SqlRunner.run(sql)
     dogs =  dog.map { |dog| Dog.new(dog) }
-    return dogs
-  end
-
-  def self.allhomed()
-    sql = "SELECT * FROM dogs
-          WHERE human_id IS NOT null;"
-    dogs = SqlRunner.run(sql)
-    dogs =  dogs.map { |dog| Dog.new(dog) }
     return dogs
   end
 
@@ -135,9 +131,5 @@ class Dog
     result = Dog.new(dog_array.first)
     return result
   end
-
-  # def format_name
-  #   return "#{@name.capitalize}"
-  # end
 
 end

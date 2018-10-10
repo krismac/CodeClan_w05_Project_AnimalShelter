@@ -6,7 +6,8 @@ CREATE TABLE humans (
   first_name VARCHAR(255),
   last_name VARCHAR(255),
   adopter BOOLEAN,
-  walker BOOLEAN
+  walker BOOLEAN,
+  human_photo_file_path VARCHAR(255)
 );
 
 CREATE TABLE dogs (
@@ -21,6 +22,7 @@ CREATE TABLE dogs (
   dog_innoculation BOOLEAN,
   dog_neutered BOOLEAN,
   dog_adoption_available BOOLEAN,
-  admission_date DATE,
+  dog_admission_date DATE,
+  dog_photo_file_path VARCHAR(255),
   human_id INT8 REFERENCES humans(id) ON DELETE CASCADE
 );
