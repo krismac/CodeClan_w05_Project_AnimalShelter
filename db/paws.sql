@@ -1,3 +1,4 @@
+DROP TABLE adoptions;
 DROP TABLE dogs;
 DROP TABLE humans;
 
@@ -25,4 +26,12 @@ CREATE TABLE dogs (
   dog_admission_date DATE,
   dog_photo_file_path VARCHAR(255),
   human_id INT8 REFERENCES humans(id) ON DELETE CASCADE
+);
+
+CREATE TABLE adoptions (
+  id SERIAL8 PRIMARY KEY,
+  dog_adoption_date DATE,
+  status_update TEXT,
+  human_id INT8 REFERENCES humans(id) ON DELETE CASCADE,
+  animal_id INT8 REFERENCES dogs(id) ON DELETE CASCADE
 );

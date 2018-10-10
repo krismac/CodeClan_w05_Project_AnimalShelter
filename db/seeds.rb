@@ -1,6 +1,7 @@
 require("pry")
 require_relative('../models/human.rb')
 require_relative('../models/dog.rb')
+require_relative('../models/adoption.rb')
 
 human1 = Human.new({
   'human_photo_file_path' =>  "/humans/barack.jpg",
@@ -224,3 +225,29 @@ dog7.save
 dog8.save
 dog9.save
 dog10.save
+
+
+adoption1 = Adoption.new({
+  'dog_adoption_date' => '2018-03-15',
+  'status_update' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
+  'human_id' => human1.id,
+  'animal_id' => dog7.id
+  })
+
+adoption2 = Adoption.new({
+  'dog_adoption_date' => '2018-02-15',
+  'update_update' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
+  'human_id' => human6.id,
+  'animal_id' => dog1.id
+  })
+
+adoption3 = Adoption.new({
+  'dog_adoption_date' => '2018-01-15',
+  'update_update' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
+  'human_id' => human4.id,
+  'animal_id' => dog5.id
+  })
+
+adoption1.save
+adoption2.save
+adoption3.save
