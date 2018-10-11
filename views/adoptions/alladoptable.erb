@@ -7,27 +7,20 @@
   </nav>
 </div>
 <br>
-<h2>All adoptable dogs</h2>
-
-<p>Trained, innoculated and looking for love.</p>
-<br>
-
+  <h2>Where Dogs are available for adoption </h2>
+  <p>Find dogs looking for their 'forever home'.</p>
+  <br>
 <table>
   <tr>
     <th><p.thick>Dog Photo</p.thick></th>
     <th><p.thick>Animal Name</p.thick></th>
-    <th><p.thick>Animal Status</p.thick></th>
     <th><p.thick>Adoption Page</p.thick></th>
   </tr>
   <% for adoption in @adoptions %>
-
-<p><%= adoption.id  %></p>
-
-<tr>
-  <td> <%= adoption.dogs.animal_name %></a></td>
-  <td> <%= adoption.dog.dog_adoption_complete() ? 'Yes' : 'No'  %></a></td>
-
-</tr>
-
-  <% end %>
+  <tr>
+    <td><a href="/paws/dogs/<%= adoption.id %>"><img src="<%= adoption.dog_photo_file_path%>" alt="Dog Profile Photo" class="Centre" style="width:100px;border:0;"></td>
+    <td><p> <%= adoption.animal_name() %></td>
+    <td> <a href="/paws/adoptions/<%= adoption.id %>">View Details</a> </td>
+      <% end %>
+  </tr>
 </table>

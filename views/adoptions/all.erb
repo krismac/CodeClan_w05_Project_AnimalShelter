@@ -23,7 +23,6 @@
 
 
   <% for adoption in @adoptions %>
-
   <tr>
     <td><a href="/paws/humans/<%= adoption.human.id %>"><img src="<%= adoption.human.human_photo_file_path%>" alt="Human Profile Photo" class="Centre" style="width:100px;border:0;"></td>
     <td> <a href="/humans/<%= adoption.human_id %>"><%= adoption.human.first_name %> <%= adoption.human.last_name %></a> </td>

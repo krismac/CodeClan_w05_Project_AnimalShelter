@@ -25,7 +25,12 @@ class Adoption
         $1, $2, $3, $4
       )
       RETURNING id"
-      values = [@dog_adoption_date, @human_id, @animal_id, @status_update]
+      values = [
+        @dog_adoption_date,
+        @human_id,
+        @animal_id,
+        @status_update
+      ]
       result = SqlRunner.run(sql, values)
       @id = result[0]['id'].to_i
     end
@@ -52,11 +57,10 @@ class Adoption
     end
 
     def self.all()
-      sql = "SELECT * FROM adoptions
-      ORDER BY animal_id"
+      sql = "SELECT * FROM adoptions;"
       adoptions = SqlRunner.run(sql)
-      all_adoptions = adoptions.map { |adoption| Adoption.new(adoption) }
-      return all_adoptions
+      dogs = adoptions.map { |adoption| Adoption.new(adoption) }
+      return dogs
     end
 
     def self.alladopted()
@@ -86,10 +90,10 @@ class Adoption
     end
 
     def self.find(id)
-      sql = "SELECT * FROM adoptions
-      WHERE id = $1"
-      adoption_array = SqlRunner.run(sql, [id])
-      result = Adoption.new(adoption_array.first)
+      sql = "SELECT * FROM adoptions WHERE id = $1"
+      values = [id]
+      array = SqlRunner.run( sql, values )
+      result = Adoption.new(array.first)
       return result
     end
 
@@ -187,4 +191,5 @@ class Adoption
       all_adoptions = adoptions.map { |adoption| Adoption.new(adoption) }
       return all_adoptions
     end
+
   end
