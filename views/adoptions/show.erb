@@ -1,0 +1,32 @@
+<body>
+  <h2>Show adoption details for <%= @adoption.dog.animal_name() %></h2>
+    <br>
+    <table>
+      <tr>
+        <th><p.thick>Adoption id</p.thick></th>
+        <th><p.thick>Adoption Date</p.thick></th>
+        <th><p.thick>Human Photo</p.thick></th>
+        <th><p.thick>Human Name</p.thick></th>
+        <th><p.thick>Dog Photo</p.thick></th>
+        <th><p.thick>Animal Name</p.thick></th>
+        <th><p.thick>Status Update</p.thick></th>
+      </tr>
+
+      <div class="info">
+        <td><%= @adoption.id %></td>
+        <td><%= @adoption.dog_adoption_date %></td>
+        <td><a href="/paws/humans/<%= @adoption.human.id %>"><img src="<%= @adoption.human.human_photo_file_path%>" alt="Human Profile Photo" class="Centre" style="width:200px;border:0;"></td>
+        <td><%= @adoption.human.first_name %> <%= @adoption.human.last_name %></td>
+        <td><a href="/paws/dogs/<%= @adoption.dog.id %>"><img src="<%= @adoption.dog.dog_photo_file_path%>" alt="Dog Profile Photo" class="Centre" style="width:200px;border:0;">
+        <td><%= @adoption.dog.animal_name %></td>
+        <td><%= @adoption.status_update %></td>
+      </div>
+    </table>
+
+        <br>
+        <a href="/paws/dogs/<%=@adoption.id %>" class="button">View Adoption Details</a>
+        <a href="/paws/dogs/<%=@adoption.id %>/edit" class="button">Edit Adoption Details</a>
+        <a href="/paws/dogs/<%= @adoption.id %>/delete" class="button">Remove Adoption</a>
+      </div>
+
+    </body>

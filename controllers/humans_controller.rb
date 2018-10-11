@@ -9,6 +9,14 @@ get('/paws/humans/all') do
   erb(:'humans/all')
 end
 
+
+## INDEX ##
+get('/paws/humans/walkers') do
+  @humans = Human.all()
+  erb(:'humans/walkers')
+end
+
+
 ## NEW ##
 get('/paws/humans/new') do
   erb(:'humans/new')

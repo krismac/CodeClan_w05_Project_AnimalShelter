@@ -23,6 +23,7 @@ CREATE TABLE dogs (
   dog_innoculation BOOLEAN,
   dog_neutered BOOLEAN,
   dog_adoption_available BOOLEAN,
+  dog_adoption_complete BOOLEAN,
   dog_admission_date DATE,
   dog_photo_file_path VARCHAR(255),
   human_id INT8 REFERENCES humans(id) ON DELETE CASCADE

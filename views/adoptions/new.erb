@@ -1,0 +1,29 @@
+<form action="/adoptions" method="post">
+
+  <label for="human-name-field">Human Name: </label>
+  <select name="human_id" id="human-name-field">
+    <% for human in @humans %>
+      <% if human.adopter == TRUE %>
+      <option value="<%= human.id %>"><%= human.first_name %> <%= human.last_name %></option>
+      <% end %>
+    <% end %>
+  </select>
+  <br>
+  <br>
+  <label for="dog-name-field">Dog Name: </label>
+  <select name="dog_id" id="dog-name-field">
+    <% for dog in @dogs %>
+      <% if dog.dog_adoption_available == TRUE %>
+      <option value="<%= dog.id %>"><%= dog.animal_name %></option>
+      <% end %>
+    <% end %>
+  </select>
+  <br>
+  <br>
+  <label for="adoption-date-field">Adoption Date: </label>
+  <input type="date" name="adoption_date" value="<%= Date.today %>" id="adoption-date-field">
+  <br>
+  <br>
+  <input type="submit" value="Confirm Adoption">
+
+</form>

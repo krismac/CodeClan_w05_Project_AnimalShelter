@@ -1,49 +1,29 @@
-<h2>Edit a Human's Profile</h2>
-<!-- <form method="POST" action="/paws/edit">
 
-    <label for="name-field">Name: </label>
-    <input type="text" name="animal_name" id="name-field"/>
+
+<br>
+  <nav>
+        <a href="/paws/humans/all">All Humans |</a>
+        <a href="/paws/humans/allwalkers">Walkers |</a>
+        <a href="/paws/humans/alladopters">Adopters |</a>
+        <a href="/paws/adoptions/all">Adoptions</a>
+  </nav>
+<br>
+<br>
+<h2>Edit a Human's Profile</h2>
+<form method="POST" action="/paws/human/<%= @human.id %>">
+
+    <label for="first-name-field">Name: </label>
+    <input type="text" name="first_name" value="<%= @human.first_name %>" id="first-name-field"/>
     <br>
-      <label for="age-field">Age:</label>
-      <input type="number" name="animal_age" min="0" max="20" id="age-field"/>
+    <label for="last-name-field">Name: </label>
+    <input type="text" name="last_name" value="<%= @human.last_name %>" id="last-name-field"/>
     <br>
-    <label for="location-select">Animal location: </label>
-    <select name="animal_location" id="location-select">
-      <option value="Glasgow">Glasgow</option>
-      <option value="Edinburgh">Edinburgh</option>
-      <option value="Dundee">Dundee</option>
-      <option value="Aberdeen">Aberdeen</option>
-    <br>
-    <br>
-    </select>
-    <label for="type-select">Animal type:</label>
-    <select name="animal_type" id="type-select">
-      <option value="Dog">Dog</option>
-      <option value="Cat">Cat</option>
-      <option value="Other">Other</option>
-    </select>
-    <br>
-    <label for="breed-field">Breed: </label>
-    <input type="text" name="animal_breed" id="breed-field"/>
-    <br>
-    <label for="profile-field">Animal Profile: </label>
-    <textarea name="Text1" cols="40" rows="5" name="animal_profile" id="profile-field"></textarea>
-    <br>
-      <input type="radio" name="group1" id="tr1" value="t" /><label for="tr1"> Trained</label>
-      <input type="radio" name="group1" id="tr2" value="f" /><label for="tr2"> Not Trained</label>
-    <br>
-      <input type="radio" name="group2" id="i1" value="t" /><label for="i1">Innoculated</label>
-      <input type="radio" name="group2" id="i2" value="f" /><label for="i2"> Not Innoculated</label>
-    <br>
-      <input type="radio" name="group3" id="n1" value="t" /><label for="n1">Neutered</label>
-      <input type="radio" name="group3" id="n2" value="f" /><label for="n2"> Not Neutered</label>
-    <br>
-      <input type="radio" name="group4" id="a1" value="t" /><label for="a1">Adoption Available</label>
-      <input type="radio" name="group4" id="a2" value="f" /><label for="a2"> Not Adoption Available</label>
-    <br>
-    <label for="admission_date">Enter an admission date: </label>
-    <input type="date" name="admission_date" min="1980-01-01"></input>
-    <br>
+      <input type="radio" name="group3" id="adopter3" value="t" /><label for="adopter3"> Interested in adopting</label>
+      <input type="radio" name="group4" id="adopter4" value="t" /><label for="adopter4"> Interested in Walking</label>
   </form>
-  <input type='submit' value="Edit Your Dog record">
-  </form> -->
+    <input type='submit' value="Submit Your Human's Edits">
+    </form>
+    <a href="/paws/humamns/<%=@human.id %>" class="button">View Human Details</a>
+    <a href="/paws/dogs/<%=@human.id%>/edit" class="button">Edit Human Details</a>
+    <a href="/paws/dogs/<%= @human.id %>/delete" class="button">Remove Human</a>
+    <hr/>

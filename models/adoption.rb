@@ -84,8 +84,81 @@ class Adoption
       sql = "Select * FROM dogs
       WHERE id = $1"
       dog_array = SqlRunner.run(sql, [@animal_id])
-      result = Beast.new(dog_array.first)
+      result = Dog.new(dog_array.first)
       return result
     end
 
+
+    def adopted()
+      sql = "UPDATE dogs
+      SET dog_adoption_complete = 'False'
+      WHERE id = $1"
+      SqlRunner.run(sql, [@beast_id])
+    end
+
+    def adoptable()
+      sql = "UPDATE dogs
+      SET dog_adoption_available = 'False'
+      WHERE id = $1"
+      SqlRunner.run(sql, [@beast_id])
+    end
+
+    def adopting()
+      sql = "UPDATE humans
+      SET adopter = 'True'
+      WHERE id = $1"
+      SqlRunner.run(sql, [@beast_id])
+    end
+
+    def self.adoption_by_date
+      today = Date.today
+      week = (today - 7)
+      sql = "SELECT * FROM adoptions WHERE date BETWEEN '#{week}' AND '#{today}'"
+      adoptions_hash = SqlRunner.run(sql)
+      adoptions_no = adoptions_hash.count
+      return adoptions_no
+    end
+
+    def self.adoption_complete_status
+      sql = "SELECT * FROM dogs WHERE human_id IS NOT null
+      AND dog_adoption_available IS FALSE;"
+      adoptions = SqlRunner.run(sql)
+      all_adoptions = adoptions.map { |adoption| Adoption.new(adoption) }
+      return all_adoptions
+    end
+
+
+    def self.adoption_required
+      animals = Animal.all
+      count = 0
+      animals.each do |animal|
+        count += 1 if animal.adoption_required_status == 0
+      end
+      return count
+    end
+
+    def self.adoption_required_status
+      sql = "SELECT * FROM dogs WHERE human_id IS null
+      AND dog_adoption_available IS TRUE;"
+      adoptions = SqlRunner.run(sql)
+      all_adoptions = adoptions.map { |adoption| Adoption.new(adoption) }
+      return all_adoptions
+    end
+
+    def self.adoption_on_hold_count
+      animals = Animal.all
+      count = 0
+      animals.each do |animal|
+        count += 1 if adoption_date != null
+      end
+      return count
+    end
+
+    def self.adoption_on_hold_status
+      sql = "SELECT * FROM dogs WHERE human_id IS null
+      AND dog_adoption_available IS FALSE;"
+      adoptions = SqlRunner.run(sql)
+      all_adoptions = adoptions.map { |adoption| Adoption.new(adoption) }
+      return all_adoptions
+    end
   end

@@ -1,1 +1,26 @@
 <h2>Adoption status</h2>
+<p>Find the dogs that have found their 'forever home' or make an adoption.</p>
+
+<table>
+  <tr>
+    <th><p.thick>Human Photo</p.thick></th>
+    <th><p.thick>Human Name</p.thick></th>
+    <th><p.thick>Dog Photo</p.thick></th>
+    <th><p.thick>Animal Name</p.thick></th>
+    <th><p.thick>Adopted</p.thick></th>
+    <th><p.thick>Adoption Page</p.thick></th>
+  </tr>
+  <% for adoption in @adoptions %>
+
+  <tr>
+    <td><a href="/paws/humans/<%= adoption.human.id %>"><img src="<%= adoption.human.human_photo_file_path%>" alt="Human Profile Photo" class="Centre" style="width:50px;border:0;"></td>
+    <td> <a href="/humans/<%= adoption.human_id %>"><%= adoption.human.first_name %> <%= adoption.human.last_name %></a> </td>
+    <td><a href="/paws/dogs/<%= adoption.dog.id %>"><img src="<%= adoption.dog.dog_photo_file_path%>" alt="Dog Profile Photo" class="Centre" style="width:50px;border:0;"></td>
+    <td> <a href="/dogs/<%= adoption.animal_id %>"><%= adoption.dog.animal_name %></a></td>
+    <td> <a href="/dogs/<%= adoption.animal_id %>"><%= adoption.dog.dog_adoption_complete() ? 'Yes' : 'No'  %></a></td>
+    <td> <a href="/adoptions/<%= adoption.id %>">View Details</a> </td>
+  </tr>
+
+
+  <% end %>
+</table>

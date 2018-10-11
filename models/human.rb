@@ -13,7 +13,7 @@ class Human
     @walker = options['walker']
   end
 
-    def adopter?
+    def homemaker?
       if @adopter == 't'
         return true
       else
@@ -21,7 +21,7 @@ class Human
       end
     end
 
-    def walker?
+    def walkies?
       if @walker == 't'
         return true
       else

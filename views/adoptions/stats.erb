@@ -1,16 +1,31 @@
-<div class="headline">
-  <div class="heading">
-    <h1>live progress</h1>
-    </div>
-      <div class="stats">
-        <div class="stats-row">
-          <p>adoptions in the last week: </p>
-          <p>animals currently needing adoption:</p>
-          <p>animals currently in our care:</p>
+</body>
+    <div class="headline">
+      <div class="heading">
+        <h1>live progress</h1>
         </div>
-      <div class="stats-row">
-        <p class="stats-box"><%= @weekly_adoptions%></p>
-        <p class = "stats-box"><%= @animals_needing_adoption%></p>
-        <p class="stats-box"><%=@animals_in_care %></p>
-      </div>
+          <div class="stats">
+              <table style="width:100%">
+                    <tr>
+                        <th><p.thick>Adoptions in the last week: </p.thick></th>
+                    </tr>
+                    <tr>
+                        <td><p.thick><%= @adoptions_by_date %></p.thick></th>
+                    </tr>
+                    <br>
+
+                    <tr>
+                        <th><p.thick>Dogs currently needing adoption:</p.thick></th>
+                    </tr>
+                    <tr>
+                        <td><p.thick><%= @adoption_required %></p.thick></th>
+                    </tr>
+                    <br>
+                    <tr>
+                        <th><p.thick>Dogs @ PAWS:</p.thick></th>
+                    </tr>
+                    <tr>
+                        <td><p.thick><%=@adoption_on_hold %></p.thick></th>
+                    </tr>
+      </table>
     </div>
+<body>

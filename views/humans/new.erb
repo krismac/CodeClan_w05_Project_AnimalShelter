@@ -1,1 +1,29 @@
+
+<br>
+  <nav>
+        <a href="/paws/humans/all">All Humans |</a>
+        <a href="/paws/humans/allwalkers">Walkers |</a>
+        <a href="/paws/humans/alladopters">Adopters |</a>
+        <a href="/paws/adoptions/all">Adoptions</a>
+  </nav>
+<br>
+<br>
 <h2>Create a new Human Profile</h2>
+
+<form method="POST" action="/paws/human">
+
+  <label for="first-name-field">First Name: </label>
+  <input type="text" name="first_name" id="first-name-field"/>
+  <br>
+  <label for="last-name-field">Last Name: </label>
+  <input type="text" name="last_name" id="last-name-field"/>
+  <br>
+    <input type="radio" name="group3" id="adopter3" value="t" /><label for="adopter1"> Interested in adopting</label>
+    <input type="radio" name="group3" id="adopter3" value="f" /><label for="adopt2"> Interested in adopting</label>
+  <br>
+  <br>
+    <input type="radio" name="group4" id="tr1" value="t" /><label for="tr1"> Interested in Walking</label>
+    <input type="radio" name="group4" id="tr2" value="f" /><label for="tr2"> Not Interested in Walking</label>
+  <br>
+    <input type="submit" name="human-field" value="Submit your new Dog record">
+  </form>

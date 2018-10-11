@@ -1,4 +1,12 @@
-
+<br>
+  <nav>
+        <a href="/paws/humans/all">All Humans |</a>
+        <a href="/paws/humans/allwalkers">Walkers |</a>
+        <a href="/paws/humans/alladopters">Adopters |</a>
+        <a href="/paws/adoptions/all">Adoptions</a>
+  </nav>
+<br>
+<br>
 <h2>Show details for <%= @human.first_name() %> <%= @human.last_name() %></h2>
 
 <div class="humans">
@@ -9,8 +17,11 @@
     <p.thick>Last Name:</p.thick><p><%= @human.last_name() %></p></p>
     <p.thick>Available to adopt: </p.thick><p><%= @human.adopter %></p>
     <p.thick>Available to walk: </p.thick><p><%= @human.walker %></p>
+      <br>
   <a href="/paws/humans/<%=@human.id %>" class="button">View Human Profile</a>
   <a href="/paws/humans/<%=@human.id%>/edit" class="button">Edit Human Profile</a>
   <a href="/paws/humans/<%= @human.id %>/delete" class="button">Remove Human</a>
+  <br>
+  <br>
   <hr/>
 </div>

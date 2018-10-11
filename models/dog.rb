@@ -2,7 +2,7 @@ require_relative('../db/sql_runner')
 
 class Dog
 
-  attr_accessor :animal_name, :animal_age, :animal_type, :animal_breed, :animal_location, :animal_profile, :dog_training, :dog_innoculation, :dog_neutered,:dog_admission_date, :dog_adoption_available, :dog_photo_file_path
+  attr_accessor :animal_name, :animal_age, :animal_type, :animal_breed, :animal_location, :animal_profile, :dog_training, :dog_innoculation, :dog_neutered,:dog_admission_date, :dog_adoption_available, :dog_photo_file_path, :dog_adoption_complete
   attr_reader :id, :human_id
 
   def initialize(options)
@@ -17,6 +17,7 @@ class Dog
     @dog_innoculation       = options['dog_innoculation']
     @dog_neutered           = options['dog_neutered']
     @dog_adoption_available = options['dog_adoption_available']
+    @dog_adoption_complete  = options['dog_adoption_complete']
     @dog_admission_date     = options['dog_admission_date']
     @dog_photo_file_path    = options['dog_photo_file_path']
     @human_id               = options['human_id'] != nil ? options['human_id'].to_i : options['human_id']
@@ -47,6 +48,14 @@ class Dog
     end
   end
 
+  def complete?
+    if @dog_adoption_complete == 't'
+      return true
+    else
+      return false
+    end
+  end
+
   def available?
     if @dog_adoption_available == 't'
       return true
@@ -68,16 +77,17 @@ class Dog
       dog_innoculation,
       dog_neutered,
       dog_adoption_available,
+      dog_adoption_complete,
       dog_admission_date,
       dog_photo_file_path,
       human_id
     )
     VALUES
     (
-      $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13
+      $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14
     )
     RETURNING id"
-    values = [@animal_name, @animal_age, @animal_type, @animal_breed, @animal_location, @animal_profile, @dog_training, @dog_innoculation, @dog_neutered, @dog_adoption_available, @dog_admission_date, @dog_photo_file_path, @human_id]
+    values = [@animal_name, @animal_age, @animal_type, @animal_breed, @animal_location, @animal_profile, @dog_training, @dog_innoculation, @dog_neutered, @dog_adoption_available, @dog_adoption_complete, @dog_admission_date, @dog_photo_file_path, @human_id]
     result = SqlRunner.run(sql, values)
     id = result.first['id']
     @id = id
@@ -97,6 +107,7 @@ class Dog
       dog_innoculation,
       dog_neutered,
       dog_adoption_available,
+      dog_adoption_complete,
       dog_admission_date,
       dog_photo_file_path,
       human_id
@@ -106,7 +117,7 @@ class Dog
       $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13
     )
     WHERE id = $14"
-    values = [@animal_name, @animal_age, @animal_type, @animal_breed, @animal_location, @animal_profile, @dog_training, @dog_innoculation, @dog_neutered, @dog_adoption_available,  @dog_admission_date, @dog_photo_file_path, @human_id, @id]
+    values = [@animal_name, @animal_age, @animal_type, @animal_breed, @animal_location, @animal_profile, @dog_training, @dog_innoculation, @dog_neutered, @dog_adoption_available, @dog_adoption_complete, @dog_admission_date, @dog_photo_file_path, @human_id, @id]
     SqlRunner.run(sql, values)
   end
 

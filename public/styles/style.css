@@ -39,14 +39,14 @@ header nav a {
   color: white;
   font-weight: 600;
   text-transform: lowercase;
-  width: 25%;
+  width: 35%;
   float: left;
 }
 
 header div {
   padding: 0.5em;
   background: dodgerblue;
-  image-orientation: left
+  image-orientation: left;
 }
 
 /* top navigation */
@@ -64,6 +64,7 @@ header div {
   padding: 14px 16px;
   text-decoration: none;
   font-size: 17px;
+  width: 80px;
 }
 
 /* links on hover */
@@ -82,6 +83,7 @@ header div {
 .topnav-right {
   float: right;
   padding: right;
+
 }
 
 /* Left-aligned section inside the top navigation */
