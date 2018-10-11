@@ -1,10 +1,11 @@
-<br>
+<div class="mysubnav">
   <nav>
-        <a href="/paws/humans/all">All Humans |</a>
-        <a href="/paws/humans/allwalkers">Walkers |</a>
-        <a href="/paws/humans/alladopters">Adopters |</a>
-        <a href="/paws/adoptions/all">Adoptions</a>
+    <a href="/paws/humans/all">All Humans</a>
+    <a href="/paws/humans/walkers">Walkers</a>
+    <a href="/paws/humans/adopters">Adopters</a>
+    <a href="/paws/adoptions/all">Adoptions</a>
   </nav>
+</div>
 <br>
 <br>
 <h2>Show details for <%= @human.first_name() %> <%= @human.last_name() %></h2>
@@ -15,13 +16,12 @@
   </div>
     <p.thick>First Name:</p.thick><p><%= @human.first_name() %></p></p>
     <p.thick>Last Name:</p.thick><p><%= @human.last_name() %></p></p>
-    <p.thick>Available to adopt: </p.thick><p><%= @human.adopter %></p>
-    <p.thick>Available to walk: </p.thick><p><%= @human.walker %></p>
+    <p.thick>Available to adopt: </p.thick><p><%= @human.adopter() ? 'Yes' : 'No'  %></p>
+    <p.thick>Available to walk: </p.thick><p><%= @human.walker() ? 'Yes' : 'No'  %></p>
       <br>
   <a href="/paws/humans/<%=@human.id %>" class="button">View Human Profile</a>
   <a href="/paws/humans/<%=@human.id%>/edit" class="button">Edit Human Profile</a>
   <a href="/paws/humans/<%= @human.id %>/delete" class="button">Remove Human</a>
   <br>
   <br>
-  <hr/>
 </div>

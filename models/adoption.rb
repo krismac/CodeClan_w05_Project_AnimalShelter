@@ -3,7 +3,7 @@ require_relative('../db/sql_runner')
 class Adoption
 
   attr_reader :id, :human_id, :animal_id
-  attr_accessor :dog_adoption_date, :status_update
+  attr_accessor :dog_adoption_date, :status_update,
 
   def initialize(options)
     @id = options['id'].to_i
@@ -46,16 +46,43 @@ class Adoption
       VALUES (
         $1, $2, $3, $4
       )
-      WHERE id = $5"
+      WHERE id = $5;"
       values = [@dog_adoption_date, @human_id, @animal_id, @status_update, @id]
       SqlRunner.run(sql, values)
     end
 
     def self.all()
-      sql = "SELECT * FROM adoptions"
+      sql = "SELECT * FROM adoptions
+      ORDER BY animal_id"
       adoptions = SqlRunner.run(sql)
       all_adoptions = adoptions.map { |adoption| Adoption.new(adoption) }
       return all_adoptions
+    end
+
+    def self.alladopted()
+      sql = "SELECT * FROM dogs
+            WHERE dog_adoption_complete IS true;"
+      dogs = SqlRunner.run(sql)
+      dogs =  dogs.map { |dog| Dog.new(dog) }
+      return dogs
+    end
+
+    def self.alladoptable()
+      sql = "SELECT * FROM dogs
+            WHERE dog_adoption_available IS true
+            AND dog_adoption_complete IS false;"
+      dog = SqlRunner.run(sql)
+      dogs =  dog.map { |dog| Dog.new(dog) }
+      return dogs
+    end
+
+    def self.allnotadoptable()
+      sql = "SELECT * FROM dogs
+            WHERE human_id IS null
+            AND dog_adoption_available IS false;"
+      dog = SqlRunner.run(sql)
+      dogs =  dog.map { |dog| Dog.new(dog) }
+      return dogs
     end
 
     def self.find(id)
@@ -88,26 +115,25 @@ class Adoption
       return result
     end
 
-
     def adopted()
       sql = "UPDATE dogs
       SET dog_adoption_complete = 'False'
       WHERE id = $1"
-      SqlRunner.run(sql, [@beast_id])
+      SqlRunner.run(sql, [@animal_id])
     end
 
     def adoptable()
       sql = "UPDATE dogs
       SET dog_adoption_available = 'False'
       WHERE id = $1"
-      SqlRunner.run(sql, [@beast_id])
+      SqlRunner.run(sql, [@animal_id])
     end
 
     def adopting()
       sql = "UPDATE humans
       SET adopter = 'True'
       WHERE id = $1"
-      SqlRunner.run(sql, [@beast_id])
+      SqlRunner.run(sql, [@animal_id])
     end
 
     def self.adoption_by_date

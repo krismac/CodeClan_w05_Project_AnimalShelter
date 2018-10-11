@@ -6,7 +6,7 @@ require_relative('../models/adoption.rb')
 human1 = Human.new({
   'human_photo_file_path' =>  "/humans/barack.jpg",
   'first_name' => 'Barack',
-  'last_name' => 'OBama',
+  'last_name' => "O'Bama",
   'adopter' => 'Y',
   'walker'  => 'N'
   })
@@ -119,7 +119,7 @@ dog4 = Dog.new({
   'dog_adoption_available' => 'Y',
   'dog_adoption_complete'  => 'N',
   'dog_admission_date' => '2016-09-15',
-  'dog_photo_file_path' =>  '/dogs/unknown.jpg',
+  'dog_photo_file_path' =>  '/dogs/default.jpg',
   'human_id' => nil
   })
 
@@ -187,7 +187,7 @@ dog4 = Dog.new({
     'dog_adoption_available' => 'Y',
     'dog_adoption_complete'  => 'N',
     'dog_admission_date' => '2018-05-03',
-    'dog_photo_file_path' =>  "/dogs/unknown.jpg",
+    'dog_photo_file_path' =>  "/dogs/default.jpg",
     'human_id' => nil
     })
 

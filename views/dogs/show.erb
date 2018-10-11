@@ -1,0 +1,28 @@
+<div class="mysubnav">
+  <nav>
+    <a href="/paws/dogs/all">All Dogs</a>
+    <a href="/paws/adoptions/adoptable">Adoptable</a>
+    <a href="/paws/adoptions/notadoptable">Not Adoptable</a>
+    <a href="/paws/adoptions/all">Adopted</a>
+  </nav>
+</div>
+<br><h2>Show dog details for <%= @dog.animal_name() %></h2>
+<hr/>
+<div class="dogs">
+  <div class="img-container">
+          <img src="<%= @dog.dog_photo_file_path%>" style="width:200px;" alt="Dog Profile Photo" class="center" />
+  </div>
+    <p.thick>Name:</p.thick><p><%= @dog.animal_name() %></p></p>
+    <p.thick>Breed: </p.thick><p><%= @dog.animal_breed %></p>
+    <p.thick>Age: </p.thick><p><%= @dog.animal_age %></p>
+    <p.thick>Currently lives in: </p.thick><p><%= @dog.animal_location %></p>
+    <p.thick>About me: </p.thick><p><%= @dog.animal_profile %></p>
+    <p.thick>Am I trained?: </p.thick><p><%= @dog.trained?() ? 'Yes' : 'No' %></p>
+    <p.thick>Do I have my jabs?: </p.thick><p><%= @dog.innoculated?() ? 'Yes' : 'No' %></p>
+    <p.thick>Am I neutered?: </p.thick><p><%= @dog.snipped?() ? 'Yes' : 'No' %></p>
+    <p.thick>Am I available to be homed?: </p.thick><p><%= @dog.available?() ? 'Yes' : 'No' %></p>
+    <br>
+    <a href="/paws/dogs/<%=@dog.id %>" class="button">View Dog Details</a>
+    <a href="/paws/dogs/<%=@dog.id%>/edit" class="button">Edit Dog Details</a>
+    <a href="/paws/dogs/<%= @dog.id %>/delete" class="button">Remove Dog</a>
+  </div>

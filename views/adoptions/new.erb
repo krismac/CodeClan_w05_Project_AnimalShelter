@@ -1,9 +1,17 @@
-<form action="/adoptions" method="post">
+<div class="mysubnav">
+  <nav>
+        <a href="/paws/dogs/all">All Dogs</a>
+        <a href="/paws/adoptions/adoptable">Adoptable</a>
+        <a href="/paws/adoptions/notadoptable">Not Adoptable</a>
+        <a href="/paws/adoptions/all">Adopted</a>
+  </nav>
+</div>
+<form action="/paws/adoptions" method="post">
 
   <label for="human-name-field">Human Name: </label>
   <select name="human_id" id="human-name-field">
     <% for human in @humans %>
-      <% if human.adopter == TRUE %>
+      <% if human.adopter == "t" %>
       <option value="<%= human.id %>"><%= human.first_name %> <%= human.last_name %></option>
       <% end %>
     <% end %>
@@ -11,9 +19,9 @@
   <br>
   <br>
   <label for="dog-name-field">Dog Name: </label>
-  <select name="dog_id" id="dog-name-field">
+  <select name="animal_id" id="dog-name-field">
     <% for dog in @dogs %>
-      <% if dog.dog_adoption_available == TRUE %>
+      <% if dog.dog_adoption_available == "t"  %>
       <option value="<%= dog.id %>"><%= dog.animal_name %></option>
       <% end %>
     <% end %>

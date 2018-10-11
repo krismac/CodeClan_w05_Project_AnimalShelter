@@ -1,12 +1,11 @@
-
-
-<br>
+<div class="mysubnav">
   <nav>
-        <a href="/paws/humans/all">All Humans |</a>
-        <a href="/paws/humans/allwalkers">Walkers |</a>
-        <a href="/paws/humans/alladopters">Adopters |</a>
-        <a href="/paws/adoptions/all">Adoptions</a>
+    <a href="/paws/humans/all">All Humans</a>
+    <a href="/paws/humans/walkers">Walkers</a>
+    <a href="/paws/humans/adopters">Adopters</a>
+    <a href="/paws/adoptions/all">Adoptions</a>
   </nav>
+</div>
 <br>
 <br>
 <h2>Edit a Human's Profile</h2>
@@ -21,7 +20,7 @@
       <input type="radio" name="group3" id="adopter3" value="t" /><label for="adopter3"> Interested in adopting</label>
       <input type="radio" name="group4" id="adopter4" value="t" /><label for="adopter4"> Interested in Walking</label>
   </form>
-    <input type='submit' value="Submit Your Human's Edits">
+    <input type='submit' value="Submit Your Edits">
     </form>
     <a href="/paws/humamns/<%=@human.id %>" class="button">View Human Details</a>
     <a href="/paws/dogs/<%=@human.id%>/edit" class="button">Edit Human Details</a>

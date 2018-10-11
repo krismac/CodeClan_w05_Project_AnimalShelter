@@ -64,6 +64,11 @@ class Dog
     end
   end
 
+  def set_adopted
+    @dog_adoption_available = false
+    @dog_adoption_complete = true
+  end
+
   def save()
     sql = "INSERT INTO dogs
     (
@@ -112,11 +117,11 @@ class Dog
       dog_photo_file_path,
       human_id
     )
-    VALUES
+    =
     (
-      $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13
+      $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14
     )
-    WHERE id = $14"
+    WHERE id = $15"
     values = [@animal_name, @animal_age, @animal_type, @animal_breed, @animal_location, @animal_profile, @dog_training, @dog_innoculation, @dog_neutered, @dog_adoption_available, @dog_adoption_complete, @dog_admission_date, @dog_photo_file_path, @human_id, @id]
     SqlRunner.run(sql, values)
   end
@@ -142,5 +147,4 @@ class Dog
     result = Dog.new(dog_array.first)
     return result
   end
-
 end

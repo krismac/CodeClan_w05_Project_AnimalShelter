@@ -9,12 +9,12 @@ get('/paws/dogs/all') do
   # binding.pry
   erb(:'dogs/all')
 end
-
+#
 # ## LIST PAGE - all dogs without owner ##
-# get ('/paws/dogs/search') do
-#   @dogs = Dog.allavailable()
+# get ('/paws/dogs/alladoptable') do
+#   @dogs = Dog.alladoptable()
 #   # binding.pry
-#   erb(:'dogs/available')
+#   erb(:'dogs/alladoptable')
 # end
 #
 # ## LIST PAGE - all dogs with owner ##
@@ -33,14 +33,8 @@ end
 post('/paws/dogs') do
   @dog = Dog.new(params)
   @dog.save
-  # redirect "/"
   erb(:'dogs/success')
 end
-
-# post ('/paws/dogs/new') do
-#   Dog.new(params).save
-#   redirect to '/paws'
-# end
 
 ## SHOW ##   ## specific dog ##
 get('/paws/dogs/:id') do
@@ -50,11 +44,13 @@ get('/paws/dogs/:id') do
 end
 
   ## DELETE ##
-post ('/paws/dogs/:id/delete') do
-  dog = Dog.find(params['id'])
-  dog.delete
+post('/paws/dogs/:id/delete') do
+  id = params[:id].to_i
+  @dog = Dogs.find(id)
+  @dog.delete
   redirect to(:'dogs/success')
 end
+
 
 ## EDIT ##
 get ('/paws/dogs/:id/edit') do

@@ -1,14 +1,22 @@
-<h2>Create a new Doggy Profile</h2>
+<div class="mysubnav">
+  <nav>
+        <a href="/paws/dogs/all">All Dogs</a>
+        <a href="/paws/dogs/available">Adoptable</a>
+        <a href="/paws/dogs/available">Not Adoptable</a>
+        <a href="/paws/adoptions/all">Adopted</a>
+  </nav>
+</div>
+<br><h2>Create a new Doggy Profile</h2>
 <form method="POST" action="/paws/dogs">
 
   <label for="name-field">Name: </label>
-  <input type="text" name="animal_name" id="name-field"/>
+  <input type="text" name="animal_name" id="name-field" placeholder="Rex" required/>
   <br>
     <label for="age-field">Age:</label>
-    <input type="number" name="animal_age" min="0" max="20" id="age-field"/>
+    <input type="number" name="animal_age" min="0" max="20" id="age-field" required/>
   <br>
   <label for="location-select">Animal location: </label>
-  <select name="animal_location" id="location-select">
+  <select name="animal_location" id="location-select" default="Glasgow" required>
     <option value="Glasgow">Glasgow</option>
     <option value="Edinburgh">Edinburgh</option>
     <option value="Dundee">Dundee</option>
@@ -17,41 +25,38 @@
   <br>
   </select>
   <label for="type-select">Animal type:</label>
-  <select name="animal_type" id="type-select">
+  <select name="animal_type" id="type-select" default="Dog">
     <option value="Dog">Dog</option>
     <option value="Cat">Cat</option>
     <option value="Other">Other</option>
   </select>
   <br>
   <label for="breed-field">Breed: </label>
-  <input type="text" name="animal_breed" id="breed-field"/>
+  <input type="text" name="animal_breed" id="breed-field" default="Mixed" required/>
   <br>
   <label for="profile-field">Animal Profile: </label>
   <textarea name="Text1" cols="40" rows="5" name="animal_profile" id="profile-field"></textarea>
   <br>
-    <input type="radio" name="group1" id="tr1" value="t" /><label for="tr1"> Trained</label>
-    <input type="radio" name="group1" id="tr2" value="f" /><label for="tr2"> Not Trained</label>
+    <input type="radio" name="dog_training" id="tr1" value="t" /><label for="tr1"> Trained</label>
+    <input type="radio" name="dog_training" id="tr2" value="f" /><label for="tr2" checked="checked" required> Not Trained</label>
   <br>
-    <input type="radio" name="group2" id="i1" value="t" /><label for="i1">Innoculated</label>
-    <input type="radio" name="group2" id="i2" value="f" /><label for="i2"> Not Innoculated</label>
+    <input type="radio" name="dog_innoculation" id="i1" value="t" /><label for="i1">Innoculated</label>
+    <input type="radio" name="dog_innoculation" id="i2" value="f" /><label for="i2" checked="checked" required> Not Innoculated</label>
   <br>
-    <input type="radio" name="group3" id="n1" value="t" /><label for="n1">Neutered</label>
-    <input type="radio" name="group3" id="n2" value="f" /><label for="n2"> Not Neutered</label>
+    <input type="radio" name="dog_neutered" id="n1" value="t" /><label for="n1">Neutered</label>
+    <input type="radio" name="dog_neutered" id="n2" value="f" /><label for="n2" checked="checked" required> Not Neutered</label>
   <br>
-    <input type="radio" name="group4" id="a1" value="t" /><label for="a1">Adoption Available</label>
-    <input type="radio" name="group4" id="a2" value="f" /><label for="a2"> Not Adoption Available</label>
+    <input type="radio" name="dog_adoption_available" id="a1" value="t" /><label for="a1">Adoption Available</label>
+    <input type="radio" name="dog_adoption_available" id="a2" value="f" /><label for="a2" checked="checked" required> Not Available for Adoption</label>
   <br>
-    <label for="human-id">Select human: </label>
-    <select class="human-id" name="human_id">
-      <% for human in @humans %>
-        <option value="<%= human.id %>"><%= human.first_name %> <%= human.last_name %></option>
-      <% end %>
-    </select>
-  <br>
+
   <label for="admission_date">Enter an admission date: </label>
   <input type="date" name="admission_date" min="1980-01-01"></input>
   <br>
-    <input type="submit" name="human-field" value="Submit your new Dog record">
+  <label for="dog-photo-file-path-field">Photo file path (e.g. file/name.jpg) </label>
+  <input type="text" name="dog_photo_file_path" value="dogs/default.jpg" id="dog_photo_file_path"/>
+  <br>
+    <input type="submit" name="human-field" value="Submit your new record">
   </form>
 
   <!-- <a href="/" class="button">Return to home</a> -->

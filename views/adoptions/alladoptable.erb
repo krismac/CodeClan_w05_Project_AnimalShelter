@@ -1,22 +1,33 @@
+<div class="mysubnav">
+  <nav>
+        <a href="/paws/dogs/all">All Dogs</a>
+        <a href="/paws/adoptions/adoptable">Adoptable</a>
+        <a href="/paws/adoptions/notadoptable">Not Adoptable</a>
+        <a href="/paws/adoptions/all">Adopted</a>
+  </nav>
+</div>
+<br>
 <h2>All adoptable dogs</h2>
+
+<p>Trained, innoculated and looking for love.</p>
+<br>
 
 <table>
   <tr>
-    <th><p.thick>Human Name</p.thick></th>
+    <th><p.thick>Dog Photo</p.thick></th>
     <th><p.thick>Animal Name</p.thick></th>
-    <th><p.thick>Available for Adoption</p.thick></th>
-    <th></th>
+    <th><p.thick>Animal Status</p.thick></th>
+    <th><p.thick>Adoption Page</p.thick></th>
   </tr>
   <% for adoption in @adoptions %>
 
+<p><%= adoption.id  %></p>
 
-  <tr>
-    <td> <a href="/humans/<%= adoption.human.id %>"><%= adoption.human.first_name %> <%= adoption.human.surname_name %></a> </td>
-    <td> <a href="/dogs/<%= adoption.animal.id %>"><%= adoption.animal.name %></a></td>
-    <td> <a href="/dogs/<%= adoption.animal.id %>"><%= adoption.animal.dog_adoption_available %></a></td>
-    <td> <a href="/adoptions/<%= adoption.id %>">View Details</a> </td>
-  </tr>
+<tr>
+  <td> <%= adoption.dogs.animal_name %></a></td>
+  <td> <%= adoption.dog.dog_adoption_complete() ? 'Yes' : 'No'  %></a></td>
 
+</tr>
 
   <% end %>
 </table>

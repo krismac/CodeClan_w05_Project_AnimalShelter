@@ -14,6 +14,20 @@ get('/paws/adoptions/all') do
   erb(:'adoptions/all')
 end
 
+##Available for adoption
+get('/paws/adoptions/adoptable') do
+  @adoptions = Adoption.alladoptable()
+  erb(:'adoptions/alladoptable')
+end
+
+##Not available for adoption
+get('/paws/adoptions/notadoptable') do
+  @adoptions = Adoption.all()
+  # binding.pry
+  erb(:'adoptions/allnotadoptable')
+end
+
+
 ## NEW ##
 get('/paws/adoptions/new') do
   @humans = Human.all()
@@ -25,6 +39,9 @@ end
 post('/paws/adoptions') do
   @adoption = Adoption.new(params)
   @adoption.save
+  dog = Dog.find(params['animal_id'])
+  dog.set_adopted()
+  dog.update()
   erb(:'dogs/success')
 end
 
@@ -56,34 +73,8 @@ post('/paws/adoptions/:id') do
   erb(:'dogs/success')
 end
 
-def self.allhomed()
-  sql = "SELECT * FROM dogs
-        WHERE human_id IS NOT null;"
-  dogs = SqlRunner.run(sql)
-  dogs =  dogs.map { |dog| Dog.new(dog) }
-  return dogs
-end
-
-def self.alladoptable()
-  sql = "SELECT * FROM dogs
-        WHERE human_id IS null
-        AND dog_adoption_available IS true;"
-  dog = SqlRunner.run(sql)
-  dogs =  dog.map { |dog| Dog.new(dog) }
-  return dogs
-end
-
-def self.allnotadoptable()
-  sql = "SELECT * FROM dogs
-        WHERE human_id IS null
-        AND dog_adoption_available IS false;"
-  dog = SqlRunner.run(sql)
-  dogs =  dog.map { |dog| Dog.new(dog) }
-  return dogs
-end
-
   # SHOW
-  get('/adoptions/:id') do
+  get('paws/adoptions/:id') do
     @adoption = Adoption.find(params[:id].to_i)
     erb(:'adoptions/show')
   end

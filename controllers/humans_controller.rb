@@ -9,16 +9,21 @@ get('/paws/humans/all') do
   erb(:'humans/all')
 end
 
-
 ## INDEX ##
 get('/paws/humans/walkers') do
   @humans = Human.all()
-  erb(:'humans/walkers')
+  erb(:'humans/allwalkers')
 end
 
+## INDEX ##
+get('/paws/humans/adopters') do
+  @humans = Human.all()
+  erb(:'humans/alladopters')
+end
 
 ## NEW ##
 get('/paws/humans/new') do
+    @humans = Human.all()
   erb(:'humans/new')
 end
 
@@ -26,7 +31,7 @@ end
 post('/paws/humans') do
   @human = Human.new(params)
   @human.save
-  redirect '/paws/humans'
+  erb(:'humans/success')
 end
 
 ## SHOW ##

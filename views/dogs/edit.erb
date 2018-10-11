@@ -1,8 +1,18 @@
-<h2>Edit a Doggy Profile</h2>
-<form method="POST" action="/paws/dogs/<%= @dog.id %>">
+<div class="mysubnav">
+  <nav>
+        <a href="/paws/dogs/all">All Dogs</a>
+        <a href="/paws/dogs/available">Adoptable</a>
+        <a href="/paws/dogs/available">Not Adoptable</a>
+        <a href="/paws/adoptions/all">Adopted</a>
+  </nav>
+</div>
+<br>
+  <h2>Edit a Doggy Profile</h2>
+  <form method="POST" action="/paws/dogs/<%= @dog.id %>">
+
 
     <label for="name-field">Name: </label>
-    <input type="text" name="animal_name" value="<%= @dog.animal_name %>" id="name-field"/>
+    <input type="text" name="animal_name" value="<%= @dog.animal_name %>" id="name-field" placeholder="Name"/>
     <br>
       <label for="age-field">Age:</label>
       <input type="number" name="animal_age" min="0" max="20" value="<%= @dog.animal_age %>" id="age-field"/>
@@ -42,13 +52,23 @@
       <input type="radio" name="group4" id="a1" value="t" /><label for="a1">Adoption Available</label>
       <input type="radio" name="group4" id="a2" value="f" /><label for="a2"> Not Adoption Available</label>
     <br>
+    <label for="human-id">Update adopter: </label>
+    <select class="human-id" name="human_id">
+      <% for human in @human %>
+        <option value="<%= human.id %>"><%= human.first_name %> <%= human.last_name %></option>
+      <% end %>
+    </select>
+  <br>
     <label for="admission_date">Enter an admission date: </label>
     <input type="date" name="admission_date" min="1980-01-01" value="<%= @dog.animal_profile %>"></input>
     <br>
+    <br>
+    <label for="dog-photo-file-path-field">Photo file path (e.g. file/name.jpg) </label>
+    <input type="text" name="dog_photo_file_path" value="dogs/default.jpg" id="dog_photo_file_path"/>
+    <br>
+    <input type='submit' value="Submit Your Edits">
   </form>
-  <input type='submit' value="Submit Your Dog Edits">
-  </form>
+  <br>
   <a href="/paws/dogs/<%=@dog.id %>" class="button">View Dog Details</a>
   <a href="/paws/dogs/<%=@dog.id%>/edit" class="button">Edit Dog Details</a>
   <a href="/paws/dogs/<%= @dog.id %>/delete" class="button">Remove Dog</a>
-  <hr/>
