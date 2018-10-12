@@ -51,7 +51,7 @@ We could not use:
 
 At the outset, I created a Trello board with a work breakdown structure based on the MVP requirements. These were sub categorised by the [MoSCoW Priorisation](https://trello.com/b/N6nxF8x8/animal-shelter-kanban-w-moscow)
 
-A first task was then to create a a [Use Case Diagram](LINK) to clearly define the system's users and their data requirements. This included the uses in the MVP, but also some extensions:
+A first task was then to create a a [Use Case Diagram](https://drive.google.com/file/d/1FJbVFl3qcgiS8sH_FUW7vhqQX8qSGp-k/view?usp=sharing) to clearly define the system's users and their data requirements. This included the uses in the MVP, but also some extensions:
 - full CRUD actions for owners and animals
 - easily filtered views for adoptable/not adoptable animals
 - search for animals by breed/type
