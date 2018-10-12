@@ -13,12 +13,7 @@ This web application was my first project undertaken at CodeClan, after four wee
 The brief for the project was as follows:
 
 ```
-Paws, the Scottish dog shelter accept orphaned or stray dogs and takes care of them until they can be adopted by a new owner.
-The shelter has a list of potential new owners for the animals. Animals may take a while to be trained up and made healthy before being available for adoption.
-They are looking for a management system to keep track of their animals and owners. They are also looking that the system might support an expansion plan into other pawed animals.
-
-
-MVP:
+Paws, the Scottish dog shelter accept orphaned or stray dogs and takes care of them until they can be adopted by a new owner. The shelter has a list of potential new owners for the animals. Animals may take a while to be trained up and made healthy before being available for adoption. They are looking for a management system to keep track of their animals and owners. They are also looking that the system might support an expansion plan into other pawed animals. MVP:
 
 - A list of all their animals and their admission date
 - Mark an animal as being adoptable/not adoptable
