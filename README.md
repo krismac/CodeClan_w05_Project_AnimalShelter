@@ -70,7 +70,7 @@ I also used [Codepen.io](https://codepen.io/dashboard?type=view&opts_itemType=pe
 
 The look of the finished application:.
 
-#Screenshots:
+##Screenshots:
 
 - [Homepage](documentation/XXXX.png)
 - [Animals Index](documentation/XXXX.png)
@@ -81,7 +81,7 @@ The look of the finished application:.
 - [New Owner Form](documentation/XXXX.png)
 - [New Animal Form](documentation/XXXX.png)
 
-#Submission & Presentation
+##Submission & Presentation
 - [Code submission via Github repo](https://github.com/krismac/CodeClan_w05_Project_AnimalShelter.git)
 - [Google Docs Presentations - 12/09/2018 (10m+5m Qs)](https://docs.google.com/presentation/d/1_FDw16pJIQCC5xAznNdObkJzt0c6EJJsvo3SvDyCAtw/edit?usp=sharing)
 or
