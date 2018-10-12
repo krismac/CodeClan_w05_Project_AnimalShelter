@@ -60,7 +60,7 @@ A first task was then to create a a [Use Case Diagram](LINK) to clearly define t
 Next I created a [Class Diagram](LINK)and [Entity Relationship Diagram](LINK), before starting to code the project.
 
 Similarly, Wireframe guides were drawn up to guide the process of applying CSS styling prior to starting on this.
-I also used Codepen.io to support with fine tuning the rendering. 
+I also used [Codepen.io](https://codepen.io/dashboard?type=view&opts_itemType=pen&opts_filter=all&opts_orderBy=id&opts_orderDirection=0&opts_tag=0&displayType=grid&previewType=iframe&page=0)to support with fine tuning the rendering. 
 
 ### The final product
 
