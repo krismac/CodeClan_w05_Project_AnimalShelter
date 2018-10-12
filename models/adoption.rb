@@ -58,42 +58,18 @@ class Adoption
 
     def self.all()
       sql = "SELECT * FROM adoptions;"
-      adoptions = SqlRunner.run(sql)
-      dogs = adoptions.map { |adoption| Adoption.new(adoption) }
-      return dogs
-    end
-
-    def self.alladopted()
-      sql = "SELECT * FROM dogs
-            WHERE dog_adoption_complete IS true;"
-      dogs = SqlRunner.run(sql)
-      dogs =  dogs.map { |dog| Dog.new(dog) }
-      return dogs
-    end
-
-    def self.alladoptable()
-      sql = "SELECT * FROM dogs
-            WHERE dog_adoption_available IS true
-            AND dog_adoption_complete IS false;"
       dog = SqlRunner.run(sql)
-      dogs =  dog.map { |dog| Dog.new(dog) }
+      dogs =  dog.map { |dog| Adoption.new(dog) }
       return dogs
     end
 
-    def self.allnotadoptable()
-      sql = "SELECT * FROM dogs
-            WHERE human_id IS null
-            AND dog_adoption_available IS false;"
-      dog = SqlRunner.run(sql)
-      dogs =  dog.map { |dog| Dog.new(dog) }
-      return dogs
-    end
+
 
     def self.find(id)
       sql = "SELECT * FROM adoptions WHERE id = $1"
       values = [id]
-      array = SqlRunner.run( sql, values )
-      result = Adoption.new(array.first)
+      dog_array = SqlRunner.run( sql, values )
+      result = Dog.new(dog_array.first)
       return result
     end
 
@@ -192,4 +168,31 @@ class Adoption
       return all_adoptions
     end
 
-  end
+
+
+    def self.alladopted()
+      sql = "SELECT * FROM dogs
+            WHERE dog_adoption_complete IS true;"
+      dogs = SqlRunner.run(sql)
+      dogs =  dogs.map { |dog| Dog.new(dog) }
+      return dogs
+    end
+
+    def self.alladoptable()
+      sql = "SELECT * FROM dogs
+            WHERE dog_adoption_available IS true
+            AND dog_adoption_complete IS false;"
+      dog = SqlRunner.run(sql)
+      dogs =  dog.map { |dog| Dog.new(dog) }
+      return dogs
+    end
+
+    def self.allnotadoptable()
+      sql = "SELECT * FROM dogs
+            WHERE dog_adoption_available IS false;"
+      dog = SqlRunner.run(sql)
+      dogs =  dog.map { |dog| Dog.new(dog) }
+      return dogs
+    end
+
+end

@@ -11,13 +11,13 @@ end
 
 ## INDEX ##
 get('/paws/humans/walkers') do
-  @humans = Human.all()
+  @humans = Human.allwalkers()
   erb(:'humans/allwalkers')
 end
 
 ## INDEX ##
 get('/paws/humans/adopters') do
-  @humans = Human.all()
+  @humans = Human.alladopters()
   erb(:'humans/alladopters')
 end
 

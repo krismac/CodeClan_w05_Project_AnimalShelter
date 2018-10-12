@@ -65,6 +65,20 @@ class Human
     return humans
   end
 
+  def self.allwalkers()
+    sql = "SELECT * FROM humans WHERE walker = TRUE;"
+    human_data = SqlRunner.run(sql)
+    humans = map_items(human_data)
+    return humans
+  end
+
+  def self.alladopters()
+    sql = "SELECT * FROM humans WHERE adopter = TRUE;"
+    human_data = SqlRunner.run(sql)
+    humans = map_items(human_data)
+    return humans
+  end
+
   def self.map_items(human_data)
     return human_data.map { |human| Human.new(human) }
   end
